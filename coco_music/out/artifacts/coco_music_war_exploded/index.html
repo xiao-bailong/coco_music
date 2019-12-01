@@ -1,0 +1,388 @@
+<!--<%@ page language="java" contentType="text/html; charset=UTF-8"-->
+<!--pageEncoding="UTF-8"%>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/other.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_758041_cf4may8xj9.css"> <!-- 引入阿里图标库css -->
+    <link rel="stylesheet" href="./css/Cooldog.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <title>网易云音乐</title>
+    <link rel="icon" type="image/x-icon" href="images/format.ico"/>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.actual.min.js"></script>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script><!-- 引入第三方插件库 -->
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    <style>
+        .demo{width:100%}
+        /*.demo p{padding:10px 0}*/
+    </style>
+</head>
+<body id="app" ng-app="">
+    <main>
+        <!-- 左侧导航部分 -->
+        <nav class="nav">
+            <div class="nav-icon">
+                <ul>
+                    <li data-index="0">
+                        <i class="iconfont icon-liebiao1"></i>
+                    </li>
+                    <li data-index="1" type="search">
+                        <i class="iconfont icon-sousuo"></i>
+                        <span>搜索</span>
+                    </li>
+                    <li data-index="2" class="active" type="find">
+                        <i class="iconfont icon-yinle4"></i>
+                        <span>发现音乐</span>
+                    </li>
+                    <li data-index="3">
+                        <i class="iconfont icon-bofang2"></i>
+                        <span>MV</span>
+                    </li>
+                    <li data-index="4">
+                        <i class="iconfont icon-dongtai"></i>
+                        <span>动态</span>
+                    </li>
+					
+                    <li data-index="5">
+                        <i class="iconfont icon-xiangyou"></i>
+                    </li>
+                    <div class="local">
+                        <div>我的音乐</div>
+                        <li data-index="6">
+                            <i class="iconfont icon-xiazai"></i>
+                            <span>下载管理</span>
+                        </li>
+                        <li data-index="7">
+                            <i class="iconfont icon-zuijin1"></i>
+                            <span>最近播放</span>
+                        </li>
+                        <div>创建的歌单</div>
+                        <li data-index="8" type="like">
+                            <i class="iconfont icon-xihuan"></i>
+                            <span>我喜欢的音乐</span>
+                        </li>
+                    </div>
+<!--					<li data-index="9">-->
+<!--					    <i class="iconfont icon-play"></i>-->
+<!--						<a href="docs/index.html">播放器</a>-->
+<!--					</li>-->
+                </ul>
+                <div class="user">
+                    <div class="login">
+						<span>
+							<img src="images/user.png" width="20">
+							<span>未登录</span>
+						</span>
+<!--						<span>-->
+<!--							<span>注册</span>-->
+<!--						</span>-->
+                        <span>
+							<i class="iconfont icon-tubiaolunkuohua-"></i>
+						</span>
+                        <span>
+							<i class="iconfont icon-shezhi"></i>
+						</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- 内容部分 -->
+        <section>
+        </section>
+
+        <div class="loading">
+            <div>
+                <div class="lds-ripple">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ajaxload">
+            <div>
+                <div class="lds-spinner" >
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <!-- audio标签部分 -->
+<!--        <audio style="display: none" id="audio" src=""></audio>-->
+
+    </main>
+
+    <script>
+        $('.load').animate({width:'40%'},100);
+    </script>
+
+    <!--网页加载进度-->
+    <div class="load"></div>
+
+    <!--登录框-->
+    <div class="login-pop">
+        <span class="close">
+                <i class="iconfont icon-x"></i>
+        </span>
+        <div class="fill">
+            <span class="prompt">
+                <i class="iconfont icon-caution"></i>
+                <span>密码错误</span>
+            </span>
+            <div class="user">
+                <span>
+                    <i class="iconfont icon-shouji"></i>
+                </span>
+                <span>
+                    <input type="text" name="username" placeholder="请输入账号">
+                </span>
+            </div>
+            <div class="pass">
+                <span>
+                    <i class="iconfont icon-mima"></i>
+                </span>
+                <span>
+                    <input type="password" name="pass" placeholder="请输入密码">
+                </span>
+            </div>
+        </div>
+
+        <div class="user-img">
+            <img src="images/def.jpg">
+            <span>马大晨</span>
+            <button type="button">签到</button>
+        </div>
+<!--        disabled-->
+        <button type="submit" id="button1">登录</button>
+        <button type="submit" id="button2">注册</button>
+    </div>
+	<!--注册框-->
+	<div class="register-pop">
+	    <span class="close">
+	            <i class="iconfont icon-x"></i>
+	    </span>
+	    <div class="fill">
+	         <span class="prompt">
+	            <i class="iconfont icon-caution"></i>
+	            <span>密码错误</span>
+	        </span>
+            <div class="username">
+	            <span>
+	                <i class="iconfont icon-shouji"></i>
+	            </span>
+                <span>
+	                <input type="text" placeholder="请输入用户名">
+	            </span>
+            </div>
+	        <div class="user">
+	            <span>
+	                <i class="iconfont icon-shouji"></i>
+	            </span>
+	            <span>
+	                <input type="text" placeholder="请输入账号">
+	            </span>
+	        </div>
+	        <div class="pass">
+	            <span>
+	                <i class="iconfont icon-mima"></i>
+	            </span>
+	            <span>
+	                <input type="password" placeholder="请输入密码">
+	            </span>
+	        </div>
+            <div class="pass2">
+	            <span>
+	                <i class="iconfont icon-mima"></i>
+	            </span>
+                <span>
+	                <input type="password" placeholder="请重复密码">
+	            </span>
+            </div>
+	    </div>	
+	    <button type="submit">注册</button>
+	</div>
+
+    <!-- 歌曲弹窗 -->
+    <div class="music-pop">
+        <div class="bg"></div>
+        <div class="lyr">
+            <div class="left">
+                <img class="disc-o" src="images/disc-o.png">
+                <img class="needle" src="images/needle.png">
+                <img class="disc" src="images/disc.png">
+                <p>
+                    <span>喜欢</span>
+                    <span>下载</span>
+                    <span>分享</span>
+                    <span>收藏</span>
+                </p>
+            </div>
+            <div class="right">
+                <p>
+                    <!--<span>讲真的</span>-->
+                    <!--<span>-->
+                    <!--专辑：<span>热门华语</span>-->
+                    <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
+                    <!--歌手：<span>曾惜</span>-->
+                    <!--</span>-->
+                    <span></span>
+                    <span>
+                            专辑：<span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                            歌手：<span></span>
+                        </span>
+                    <span>
+                            <i class="iconfont icon-youshang"></i>
+                            <i class="iconfont icon-zuoxia"></i>
+                        </span>
+                </p>
+                <div class="Lyrics">
+                    <ul>
+                        <!--<li>1111111</li>-->
+                        <!--<li>1111111</li>-->
+                        <!--<li>1111111</li>-->
+                        <!--<li>1111111</li>-->
+                        <!--<li>1111111</li>-->
+                        <!--<li>1111111</li>-->
+                        <!--<li>1111111</li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $('.load').animate({width:'60%'},100);
+    </script>
+
+
+    <!-- 列表弹窗 -->
+<!--    <div class="list-pop">-->
+<!--        <div class="title">-->
+<!--            <span>播放列表</span>-->
+<!--            <span><i class="iconfont icon-laji"></i> 清空</span>-->
+<!--            <span><i class="iconfont icon-x"></i></span>-->
+<!--        </div>-->
+<!--        <div class="list">-->
+<!--            <ul>-->
+<!--                &lt;!&ndash; <li data-index="0">-->
+<!--                    <span>That Girl</span>-->
+<!--                    <span>Olly Murs</span>-->
+<!--                </li>-->
+<!--                <li data-index="1">-->
+<!--                    <span>学猫叫</span>-->
+<!--                    <span>小潘潘 小峰峰</span>-->
+<!--                </li>-->
+<!--                <li data-index="2">-->
+<!--                    <span>讲真的</span>-->
+<!--                    <span>曾惜</span>-->
+<!--                </li> &ndash;&gt;-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <!-- 音量弹窗 -->
+<!--    <div class="sound-pop">  &lt;!&ndash;音量弹窗&ndash;&gt;-->
+<!--        <span><i class="iconfont icon-yinliang"></i></span>-->
+<!--        <div class="sound-bar">-->
+<!--            <span class="sound-schedule"></span>-->
+<!--            <span class="sound-control"><span></span></span>-->
+<!--        </div>-->
+<!--        <div class="triangle">-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+    <script>
+        $('.load').animate({width:'80%'},100);
+    </script>
+
+
+    <!-- 尾部，播放部分 -->
+    <footer class="footer">
+<!--        <iframe src="play1.html" ></iframe>-->
+<!--        <div ng-include="'./play1.html'"></div>-->
+    </footer>
+<!--    <footer class="footer">-->
+<!--        &lt;!&ndash; 专辑封面 &ndash;&gt;-->
+<!--        <div class="headimg">-->
+<!--            <img src="images/def.jpg" width="60" height="60" />-->
+<!--            <div>-->
+<!--                <span><i class="iconfont icon-zuoxia01"></i></span>-->
+<!--                <span><i class="iconfont icon-youshang01"></i></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 模块左部分：上一首,播放，暂停，下一首 &ndash;&gt;-->
+<!--        <div class="play">-->
+<!--            <div class="play-icon">-->
+<!--                <span><i class="iconfont icon-houtui"></i></span>-->
+<!--                <span><i class="iconfont icon-bofang1"></i></span>-->
+<!--                <span><i class="iconfont icon-qianjin"></i></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 进度条部分 &ndash;&gt;-->
+<!--        <div class="progress">-->
+<!--            <span class="musicName"></span>-->
+<!--            <span class="author"> - </span>-->
+<!--            <span class="musicTime">-->
+<!--                <span>00:00</span>-->
+<!--                <span> / 00:00</span>-->
+<!--            </span>-->
+<!--            <div class="progress-bar">-->
+<!--                <span class="bar"></span>-->
+<!--                <span class="control"><span></span></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 音量部分 &ndash;&gt;-->
+<!--        <div class="sound">-->
+<!--            <span><i class="iconfont icon-heart2"></i></span>-->
+<!--            <span><i class="iconfont icon-shunxu"></i></span>-->
+<!--            <span><i class="iconfont icon-yinliang"></i></span>-->
+<!--            <span><i class="iconfont icon-liebiao"></i><span>3</span></span>-->
+<!--        </div>-->
+<!--		&lt;!&ndash; <div class="player">-->
+<!--			<button>播放器</button>-->
+<!--			<a href="docs/login.html">播放器</a>-->
+<!--		</div> &ndash;&gt;-->
+<!--    </footer>-->
+
+
+
+    <!--操作成功提示框-->
+    <!--<div class="tips">-->
+        <!--<i class="iconfont icon-jifen"></i>-->
+        <!--<span>积分+2</span>-->
+    <!--</div>-->
+
+
+    <script src="./js/function.js"></script>
+<!--    <script src="./js/play.js"></script>-->
+    <script src="./js/main.js"></script>
+    <script src="./js/Cooldog.js"></script>
+    <script>
+        $('.load').animate({width:'100%'},100,function () {
+            $(this).remove();
+        });
+    </script>
+    <!--<script src="//vjs.zencdn.net/5.19/video.min.js"></script>-->
+</body>
+</html>

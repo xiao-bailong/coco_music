@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="unnamed">
+    <output-path>$PROJECT_DIR$/out/artifacts/unnamed</output-path>
+    <root id="root">
+      <element id="directory" name="lib">
+        <element id="archive" name="coco_music.jar">
+          <element id="module-output" name="coco_music" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
