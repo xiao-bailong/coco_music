@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="syx_summer_dzy:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/syx_summer_dzy_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="syx_summer_dzy/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="syx_summer_dzy" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
