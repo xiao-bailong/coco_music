@@ -7,13 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00a0448e-dab4-4db5-a769-e2adfc3e728c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/dao/RecommendDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/SonglistDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/SonglistsongDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlet/ListsongServelet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlet/RecommendServelet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlet/SonglistServelet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Song.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Song_like.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Song_like.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Songlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Songlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/SonglikeServelet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/SonglikeServelet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/classes/entity/Recommend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/classes/entity/Recommend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/classes/entity/Songlist_song.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/classes/entity/Songlist_song.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/css/other.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/css/other.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/js/function.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/js/function.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/coco_music/entity/Recommend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/coco_music/entity/Recommend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/coco_music/entity/Songlist_song.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/coco_music/entity/Songlist_song.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Recommend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Recommend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Songlist_song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Songlist_song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/other.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/other.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/function.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/function.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/recommend.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/recommend.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,12 +80,11 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\WEB-INF\views" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\WEB-INF" />
+      <recent name="F:\IDEA_ku\coco_music\web" />
+      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
+      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dao" />
@@ -79,11 +93,12 @@
       <recent name="test" />
       <recent name="filter" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web" />
       <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
-      <recent name="F:\IDEA_ku\coco_music\web" />
-      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
-      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF\views" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\WEB-INF\views" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\WEB-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -217,7 +232,7 @@
       <workItem from="1575167379772" duration="9105000" />
       <workItem from="1575206625611" duration="12412000" />
       <workItem from="1575269667298" duration="3169000" />
-      <workItem from="1575274177802" duration="1210000" />
+      <workItem from="1575274177802" duration="21686000" />
     </task>
     <servers />
   </component>
@@ -260,6 +275,16 @@
           <line>95</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/servlet/ListsongServelet.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/servlet/RecommendServelet.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -269,6 +294,9 @@
         <watch expression="page" language="JAVA" />
         <watch expression="page1" language="JAVA" />
         <watch expression="result" language="JAVA" />
+        <watch expression="ret" language="JAVA" />
+        <watch expression="id" language="JAVA" />
+        <watch expression="page1.getContent().get(0)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

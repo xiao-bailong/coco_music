@@ -47,7 +47,34 @@
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-        <description>登录注册控制类</description>
+        <description>歌单歌曲控制类</description>
+        <servlet-name>ListsongServelet</servlet-name>
+        <servlet-class>servlet.ListsongServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListsongServelet</servlet-name>
+        <url-pattern>/ListsongServelet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description>歌单控制类</description>
+        <servlet-name>SonglistServelet</servlet-name>
+        <servlet-class>servlet.SonglistServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SonglistServelet</servlet-name>
+        <url-pattern>/SonglistServelet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description>推荐歌曲控制类</description>
+        <servlet-name>RecommendServelet</servlet-name>
+        <servlet-class>servlet.RecommendServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RecommendServelet</servlet-name>
+        <url-pattern>/RecommendServelet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description>我的喜欢控制类</description>
         <servlet-name>SonglikeServelet</servlet-name>
         <servlet-class>servlet.SonglikeServelet</servlet-class>
     </servlet>

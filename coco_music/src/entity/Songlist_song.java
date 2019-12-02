@@ -1,21 +1,27 @@
 package entity;
 
 public class Songlist_song {
-	private int songlist_id;
-	private int song_id;
-	private String song_name;
-	public int getSonglist_id() {
+	private String songlist_id;
+	private String song_id;
+
+	public String getSonglist_id() {
 		return songlist_id;
 	}
-	public void setSonglist_id(int songlist_id) {
+
+	public void setSonglist_id(String songlist_id) {
 		this.songlist_id = songlist_id;
 	}
-	public int getSong_id() {
+
+	public String getSong_id() {
 		return song_id;
 	}
-	public void setSong_id(int song_id) {
+
+	public void setSong_id(String song_id) {
 		this.song_id = song_id;
 	}
+
+	private String song_name;
+
 	public String getSong_name() {
 		return song_name;
 	}

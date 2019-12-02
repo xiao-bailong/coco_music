@@ -701,9 +701,56 @@
     $('section').on('click','.find .main .recommend .recommend-song>div',function () {
         var id=$(this).attr('data-id');
         $('.loading').show();
+        //原生
+        // $.ajax({
+        //     url:' http://localhost:3000/playlist/detail?id='+id,
+        //     type:'get',
+        //     success:function (res) {
+        //         $.ajax({
+        //             url:'cd.html',
+        //             type:'get',
+        //             success:function (html) {
+        //                 history.replaceState({text:$('section').html()}, '');
+        //                 $('section').html(html);
+        //                 haveLists=res.playlist.tracks;
+        //                 $('.author-cd .top>p').text('歌单');
+        //                 $('.author-cd .top>div img').attr('src',res.playlist.coverImgUrl);
+        //                 $('.author-cd .top>div p:nth-child(2)').text(res.playlist.name);
+        //                 var str='';
+        //                 for (let i=0;i<res.playlist.tags.length;i++) {
+        //                     if (i==res.playlist.tags.length-1) {
+        //                         str+=res.playlist.tags[i];
+        //                     }else {
+        //                         str+=res.playlist.tags[i]+' / ';
+        //                     }
+        //                 }
+        //                 $('.author-cd .top>div p:nth-child(3)').text('标签：'+str);
+        //                 $('.author-cd .top>div p:nth-child(4)').text('介绍：'+res.playlist.description);
+        //
+        //                 var str1='';
+        //                 for (let i=0;i<res.playlist.tracks.length;i++){
+        //                     str1+='<li>' +
+        //                         '<span>'+num(i+1)+'</span>' +
+        //                         '<span>'+res.playlist.tracks[i].name+'</span>' +
+        //                         '<span>'+res.playlist.tracks[i].ar[0].name+'</span>' +
+        //                         '<span>热度：'+res.playlist.tracks[i].pop+'</span>' +
+        //                         '</li>'
+        //                 }
+        //                 $('.author-cd .bottom>ul').html(str1);
+        //                 $('.loading').fadeOut();
+        //
+        //                 history.pushState({}, '', '?songsheetid='+id);
+        //                 history.replaceState({text:$('section').html()}, '');
+        //             }
+        //         });
+        //     }
+        // });
+        //syx
         $.ajax({
-            url:' http://localhost:3000/playlist/detail?id='+id,
-            type:'get',
+            url:'SonglistServelet?method=GetSongListDatabyid',
+            type:'post',
+            dataType:'json',
+            data: {id: id},
             success:function (res) {
                 $.ajax({
                     url:'cd.html',
@@ -711,28 +758,69 @@
                     success:function (html) {
                         history.replaceState({text:$('section').html()}, '');
                         $('section').html(html);
-                        haveLists=res.playlist.tracks;
+                        console.log(res)
+                        // haveLists=res.playlist.tracks;
                         $('.author-cd .top>p').text('歌单');
-                        $('.author-cd .top>div img').attr('src',res.playlist.coverImgUrl);
-                        $('.author-cd .top>div p:nth-child(2)').text(res.playlist.name);
+                        $('.author-cd .top>div img').attr('src',res.values[0].picurl);
+                        $('.author-cd .top>div p:nth-child(2)').text(res.values[0].songlist_name);
                         var str='';
-                        for (let i=0;i<res.playlist.tags.length;i++) {
-                            if (i==res.playlist.tags.length-1) {
-                                str+=res.playlist.tags[i];
-                            }else {
-                                str+=res.playlist.tags[i]+' / ';
-                            }
-                        }
-                        $('.author-cd .top>div p:nth-child(3)').text('标签：'+str);
-                        $('.author-cd .top>div p:nth-child(4)').text('介绍：'+res.playlist.description);
+                        // for (let i=0;i<res.playlist.tags.length;i++) {
+                        //     if (i==res.playlist.tags.length-1) {
+                        //         str+=res.playlist.tags[i];
+                        //     }else {
+                        //         str+=res.playlist.tags[i]+' / ';
+                        //     }
+                        // }
+                        $('.author-cd .top>div p:nth-child(3)').text('标签：'+res.values[0].tags);
+                        $('.author-cd .top>div p:nth-child(4)').text('介绍：'+res.values[0].description);
+
+                        // var str1='';
+                        // for (let i=0;i<res.playlist.tracks.length;i++){
+                        //     str1+='<li>' +
+                        //         '<span>'+num(i+1)+'</span>' +
+                        //         '<span>'+res.playlist.tracks[i].name+'</span>' +
+                        //         '<span>'+res.playlist.tracks[i].ar[0].name+'</span>' +
+                        //         '<span>热度：'+res.playlist.tracks[i].pop+'</span>' +
+                        //         '</li>'
+                        // }
+                        $('.author-cd .bottom>ul').html(str);
+                        $('.loading').fadeOut();
+
+                        history.pushState({}, '', '?songsheetid='+id);
+                        history.replaceState({text:$('section').html()}, '');
+                    }
+                });
+                $.ajax({
+                    url:'ListsongServelet?method=GetSongListSong',
+                    type:'post',
+                    dataType:'json',
+                    data: {id: id},
+                    success:function (res) {
+                        // history.replaceState({text:$('section').html()}, '');
+                        // $('section').html(html);
+                        console.log(res)
+                        haveLists=res;
+                        // $('.author-cd .top>p').text('歌单');
+                        // $('.author-cd .top>div img').attr('src',res.values[0].picurl);
+                        // $('.author-cd .top>div p:nth-child(2)').text(res.values[0].songlist_name);
+                        var str='';
+                        // for (let i=0;i<res.playlist.tags.length;i++) {
+                        //     if (i==res.playlist.tags.length-1) {
+                        //         str+=res.playlist.tags[i];
+                        //     }else {
+                        //         str+=res.playlist.tags[i]+' / ';
+                        //     }
+                        // }
+                        // $('.author-cd .top>div p:nth-child(3)').text('标签：'+res.values[0].tags);
+                        // $('.author-cd .top>div p:nth-child(4)').text('介绍：'+res.values[0].description);
 
                         var str1='';
-                        for (let i=0;i<res.playlist.tracks.length;i++){
+                        for (let i=0;i<res.values.length;i++){
                             str1+='<li>' +
                                 '<span>'+num(i+1)+'</span>' +
-                                '<span>'+res.playlist.tracks[i].name+'</span>' +
-                                '<span>'+res.playlist.tracks[i].ar[0].name+'</span>' +
-                                '<span>热度：'+res.playlist.tracks[i].pop+'</span>' +
+                                '<span>'+res.values[i].song_name+'</span>' +
+                                '<span>'+res.values[i].author_name+'</span>' +
+                                '<span>热度：'+res.values[i].pop+'</span>' +
                                 '</li>'
                         }
                         $('.author-cd .bottom>ul').html(str1);
@@ -832,7 +920,7 @@
         $('.sound span:nth-child(4) span').text(lists.length);
         $('.recommend-songs ul li span').css('color','');
         $(this).children().css('color','#C32D2E');
-        // musicInit();
+        musicInit();
         audio.play();
     });
 
