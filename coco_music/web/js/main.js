@@ -45,7 +45,7 @@
 
 
 
-    /*//音量弹窗隐藏和显示
+    //音量弹窗隐藏和显示
     $('.sound>span:eq(2)').click(function(){
         $('.sound-pop').fadeToggle(200);
     });
@@ -79,7 +79,7 @@
         if (browserRedirect()=='pc') {
             $('.headimg>div').hide();
         }
-    });*/
+    });
 
     //为每个nav下的li绑定点击事件
     $('.loading').show();
@@ -102,7 +102,7 @@
             if ($(this).attr('data-index')==1) {
                 $('.loading').show();
                 $.ajax({
-                    url:'search.html',
+                    url:'../coco_music_war_exploded/search.html',
                     type:'get',
                     success:function (res) {
                         history.replaceState({text:$('section').html()}, '');
@@ -115,7 +115,7 @@
             }else if ($(this).attr('data-index')==2){
                 $('.loading').show();
                 $.ajax({
-                    url:'find.html',
+                    url:'../coco_music_war_exploded/find.html',
                     type:'get',
                     success:function (res) {
                         history.replaceState({text:$('section').html()}, '');
@@ -129,52 +129,109 @@
                 var type=$(this).attr('type');
                 $('.loading').show();
                 $.ajax({
-                    url:'cd.html',
+                    url:'../coco_music_war_exploded/cd.html',
                     type:'get',
                     success:function (html) {
-                        var id=$('.nav-icon .local li:nth-child(5)').attr('data-id');
-                        if (id){
-                            history.replaceState({text:$('section').html()}, '');
-                            $('section').html(html);
-                            $.ajax({
-                                url:'/playlist/detail?id='+id,
-                                type:'get',
-                                success:function (data) {
-                                    haveLists=data.playlist.tracks;
-                                    $('.author-cd .top>p').text('歌单');
-                                    $('.author-cd .top>div img').attr('src',data.playlist.coverImgUrl);
-                                    $('.author-cd .top>div p:nth-child(2)').text('我喜欢的音乐');
-                                    $('.author-cd .top>div p:nth-child(3)').text(fmtDate(data.playlist.createTime)+' 创建');
-                                    $('.author-cd .top>div p:nth-child(4)').text('');
-                                    var str='';
-                                    for (let i=0;i<data.playlist.tracks.length;i++){
-                                        str+='<li>' +
-                                            '<span>'+num(i+1)+'</span>' +
-                                            '<span>'+data.playlist.tracks[i].name+'</span>' +
-                                            '<span>'+data.playlist.tracks[i].ar[0].name+'</span>' +
-                                            '<span>热度：'+data.playlist.tracks[i].pop+'</span>' +
-                                            '</li>'
+                        // var id=$('.nav-icon .local li:nth-child(5)').attr('data-id');
+                        // if (id){
+                        //     history.replaceState({text:$('section').html()}, '');
+                        //     $('section').html(html);
+                        //     $.ajax({
+                        //         url:'/playlist/detail?id='+id,
+                        //         type:'get',
+                        //         success:function (data) {
+                        //             haveLists=data.playlist.tracks;
+                        //             $('.author-cd .top>p').text('歌单');
+                        //             $('.author-cd .top>div img').attr('src',data.playlist.coverImgUrl);
+                        //             $('.author-cd .top>div p:nth-child(2)').text('我喜欢的音乐');
+                        //             $('.author-cd .top>div p:nth-child(3)').text(fmtDate(data.playlist.createTime)+' 创建');
+                        //             $('.author-cd .top>div p:nth-child(4)').text('');
+                        //             var str='';
+                        //             for (let i=0;i<data.playlist.tracks.length;i++){
+                        //                 str+='<li>' +
+                        //                     '<span>'+num(i+1)+'</span>' +
+                        //                     '<span>'+data.playlist.tracks[i].name+'</span>' +
+                        //                     '<span>'+data.playlist.tracks[i].ar[0].name+'</span>' +
+                        //                     '<span>热度：'+data.playlist.tracks[i].pop+'</span>' +
+                        //                     '</li>'
+                        //             }
+                        //             $('.author-cd .bottom>ul').html(str);
+                        //             $('.loading').fadeOut();
+                        //             hist(type);
+                        //         }
+                        //     });
+                        // }else {
+                        //     alert('请先登录');
+                        // }
+                        //syx
+                        history.replaceState({text:$('section').html()}, '');
+                        $('section').html(html);
+                        $.ajax({
+                                    url:'SonglikeServelet?method=GetSonglikeListData',
+                                    type:'post',
+                                    dataType:'json',
+                                    success:function (data) {
+                                        haveLists=data
+                                        console.log(data);
+                                        // haveLists=data.playlist.tracks;
+                                        $('.author-cd .top>p').text('歌单');
+                                        $('.author-cd .top>div img').attr('src',data.values[0].picurl);
+                                        $('.author-cd .top>div p:nth-child(2)').text('我喜欢的音乐');
+                                        // $('.author-cd .top>div p:nth-child(3)').text(fmtDate(data.playlist.createTime)+' 创建');
+                                        $('.author-cd .top>div p:nth-child(4)').text('');
+                                        var str='';
+                                        for (let i=0;i<data.values.length;i++){
+                                            str+='<li>' +
+                                                '<span>'+num(i+1)+'</span>' +
+                                                '<span>'+data.values[i].song_name+'</span>' +
+                                                '<span>'+data.values[i].album_name+'</span>' +
+                                                '<span>热度：'+data.values[i].pop+'</span>' +
+                                                '</li>'
+                                        }
+                                        $('.author-cd .bottom>ul').html(str);
+                                        $('.loading').fadeOut();
+                                        hist(type);
                                     }
-                                    $('.author-cd .bottom>ul').html(str);
-                                    $('.loading').fadeOut();
-                                    hist(type);
-                                }
-                            });
-                        }else {
-                            alert('请先登录');
-                        }
+                                });
+                        //new
+                        // history.replaceState({text:$('section').html()}, '');
+                        //     $('section').html(html);
+                        //     $.ajax({
+                        //         url:'/playlist/detail?id='+id,
+                        //         type:'get',
+                        //         success:function (data) {
+                        //             haveLists=data.playlist.tracks;
+                        //             $('.author-cd .top>p').text('歌单');
+                        //             $('.author-cd .top>div img').attr('src',data.playlist.coverImgUrl);
+                        //             $('.author-cd .top>div p:nth-child(2)').text('我喜欢的音乐');
+                        //             $('.author-cd .top>div p:nth-child(3)').text(fmtDate(data.playlist.createTime)+' 创建');
+                        //             $('.author-cd .top>div p:nth-child(4)').text('');
+                        //             var str='';
+                        //             for (let i=0;i<data.playlist.tracks.length;i++){
+                        //                 str+='<li>' +
+                        //                     '<span>'+num(i+1)+'</span>' +
+                        //                     '<span>'+data.playlist.tracks[i].name+'</span>' +
+                        //                     '<span>'+data.playlist.tracks[i].ar[0].name+'</span>' +
+                        //                     '<span>热度：'+data.playlist.tracks[i].pop+'</span>' +
+                        //                     '</li>'
+                        //             }
+                        //             $('.author-cd .bottom>ul').html(str);
+                        //             $('.loading').fadeOut();
+                        //             hist(type);
+                        //         }
+                        //     });
                     }
                 });
             }else if ($(this).attr('data-index')==3){
                 $('.loading').show();
                 $.ajax({
-                   url:'mvSecond.html',
+                   url:'../coco_music_war_exploded/mvSecond.html',
                     type:'get',
                     success:function (html) {
                         history.replaceState({text:$('section').html()}, '');
                         $('section').html(html);
                         mvOffset=0;
-                        getmvsecond('top/mv?limit=20').then(function (data) {
+                        getmvsecond('http://localhost:3000/top/mv?limit=20').then(function (data) {
                             $('.mv-second .paihangbang').html(data);
                             $('.loading').fadeOut();
                             hist('mvSecond');
@@ -374,21 +431,38 @@
     });
 
     //点击专辑列表，播放歌曲
+    // $('section').on('click','.author-cd .bottom>ul li',function () {
+    //     musicIndex=$(this).index();
+    //     lists=haveLists;
+    //     var str='';
+    //     for (let i=0;i<lists.length;i++){
+    //         str+='<li data-index='+i+'>' +
+    //             '<span>'+lists[i].name+'</span>\n' +
+    //             '<span>'+lists[i].ar[0].name+'</span>\n' +
+    //             '</li>'
+    //     }
+    //     $('.list-pop .list>ul').html(str);
+    //     $('.sound span:nth-child(4) span').text(lists.length);
+    //     musicInit();
+    //     audio.play();
+    // }
+    //syx
     $('section').on('click','.author-cd .bottom>ul li',function () {
-        musicIndex=$(this).index();
-        lists=haveLists;
-        var str='';
-        for (let i=0;i<lists.length;i++){
-            str+='<li data-index='+i+'>' +
-                '<span>'+lists[i].name+'</span>\n' +
-                '<span>'+lists[i].ar[0].name+'</span>\n' +
-                '</li>'
+            musicIndex=$(this).index();
+            lists=haveLists;
+            var str='';
+            for (let i=0;i<lists.values.length;i++){
+                str+='<li data-index='+i+'>' +
+                    '<span>'+lists.values[i].song_id+'</span>\n' +
+                    '<span>'+lists.values[i].song_id+'</span>\n' +
+                    '</li>'
+            }
+            $('.list-pop .list>ul').html(str);
+            $('.sound span:nth-child(4) span').text(lists.length);
+            musicInit();
+            audio.play();
         }
-        $('.list-pop .list>ul').html(str);
-        $('.sound span:nth-child(4) span').text(lists.length);
-        musicInit();
-        audio.play();
-    });
+    );
 
     //登录input输入事件
     // $('.login-pop>div input').on('input',function () {
@@ -431,47 +505,47 @@
 	    $('.register-pop').slideUp();
 	});
     //点击注册按钮
-    // $('.register-pop>button').click(function () {
-    //     if ($(this).text()=='注册'){
-    //         var userName=$('.register-pop .user input').val();
-    //         var password=$('.register-pop .pass input').val();
-    //         $.ajax({
-    //             url:'/login/cellphone?phone='+userName+'&password='+password,
-    //             xhrFields: {
-    //                 withCredentials: true
-    //             },
-    //             type:'get',
-    //             success:function (res) {
-    //                 if (res.code==200){ //登陆成功
-    //                     // $('.nav .login>span:nth-child(1) img').attr('src',res.profile.avatarUrl);
-    //                     // $('.nav .login>span:nth-child(2) span').text(res.profile.nickname);
-    //                     // $('.register-pop .user-img img').attr('src',res.profile.avatarUrl);
-    //                     $('.register-pop').slideUp();
-    //                     $('.register-pop .fill').hide();
-    //                     $('.register-pop .user-img').show();
-    //                     $('.register-pop>button').text('切换账号');
-    //                     $('.register-pop>button').removeAttr('disabled');
-    //                     $('.register-pop>button').attr('class','selected');
-    //                     $('.register-pop .user input').val('');
-    //                     $('.register-pop .pass input').val('');
-    //                 }else if (res.code==400) {
-    //                     $('.register-pop .prompt>span').text('账号不存在');
-    //                     $('.register-pop .prompt').show();
-    //                 }else {
-    //                     $('.register-pop .prompt>span').text(res.msg);
-    //                     $('.register-pop .prompt').show();
-    //                 }
-    //             }
-    //         });
-    //     }else {
-    //         // $('.nav .login>span:nth-child(1) img').attr('src','./images/def.jpg');
-    //         $('.nav .login>span:nth-child(2) span').text('注册');
-    //         $('.register-pop .fill').show();
-    //         // $('.register-pop .user-img').hide();
-    //         $('.register-pop>button').text('注册');
-    //         $('.register-pop>button').attr('disabled','');
-    //     }
-    // });
+    $('.register-pop>button').click(function () {
+        if ($(this).text()=='注册'){
+            var userName=$('.register-pop .user input').val();
+            var password=$('.register-pop .pass input').val();
+            $.ajax({
+                url:'/login/cellphone?phone='+userName+'&password='+password,
+                xhrFields: {
+                    withCredentials: true
+                },
+                type:'get',
+                success:function (res) {
+                    if (res.code==200){ //登陆成功
+                        // $('.nav .login>span:nth-child(1) img').attr('src',res.profile.avatarUrl);
+                        // $('.nav .login>span:nth-child(2) span').text(res.profile.nickname);
+                        // $('.register-pop .user-img img').attr('src',res.profile.avatarUrl);
+                        $('.register-pop').slideUp();
+                        $('.register-pop .fill').hide();
+                        $('.register-pop .user-img').show();
+                        $('.register-pop>button').text('切换账号');
+                        $('.register-pop>button').removeAttr('disabled');
+                        $('.register-pop>button').attr('class','selected');
+                        $('.register-pop .user input').val('');
+                        $('.register-pop .pass input').val('');
+                    }else if (res.code==400) {
+                        $('.register-pop .prompt>span').text('账号不存在');
+                        $('.register-pop .prompt').show();
+                    }else {
+                        $('.register-pop .prompt>span').text(res.msg);
+                        $('.register-pop .prompt').show();
+                    }
+                }
+            });
+        }else {
+            // $('.nav .login>span:nth-child(1) img').attr('src','./images/def.jpg');
+            $('.nav .login>span:nth-child(2) span').text('注册');
+            $('.register-pop .fill').show();
+            // $('.register-pop .user-img').hide();
+            $('.register-pop>button').text('注册');
+            $('.register-pop>button').attr('disabled','');
+        }
+    });
 
     //点击登录按钮
     // $('.login-pop>button').click(function () {
@@ -515,87 +589,17 @@
     //         $('.login-pop>button').attr('disabled','');
     //     }
     // });
-
-    //点击注册按钮(修改版)
-    $('.register-pop>button').click(function () {
-        if ($(this).text()=='注册'){
-            var $name=$('.register-pop .username input').val();
-            var $user_id=$('.register-pop .user input').val();
-            var $password=$('.register-pop .pass input').val();
-            var $password2=$('.register-pop .pass2 input').val();
-            if($name=='' ){
-                // alert("用户名不能为空");
-                $('.register-pop .prompt>span').text('用户名不能为空');
-                $('.register-pop .prompt').show();
-                return false;
-            }
-            else if($user_id==''){
-                // alert("账号不能为空");
-                $('.register-pop .prompt>span').text('账号不能为空');
-                $('.register-pop .prompt').show();
-                return false;
-            }
-            else if($password==''){
-                // alert("密码不能为空");
-                $('.register-pop .prompt>span').text('密码不能为空');
-                $('.register-pop .prompt').show();
-                return false;
-            }
-            else if($password!=$password2){
-                // alert("两次密码不一致");
-                $('.register-pop .prompt>span').text('两次密码不一致');
-                $('.register-pop .prompt').show();
-                return false;
-            } else{
-                var datas={
-                    name:$name,
-                    user_id:$user_id,
-                    password:$password
-                };
-                $.ajax({
-                    url:'LoginServlet?method=registeAct',
-                    type:'post',
-                    dataType:'json',
-                    data:datas,
-                    success:function(data){
-                        if("error" == data.type){
-                            // alert(data.msg);
-                            $('.register-pop .prompt>span').text(data.msg);
-                            $('.register-pop .prompt').show();
-                        }else if("success" == data.type){
-                            alert(data.msg);
-                            $('.register-pop').slideUp();/*关闭注册框*/
-                        }
-                    },
-                    error:function(){
-                        alert('false');
-                    }
-                });
-            }
-        }else {
-            // $('.nav .login>span:nth-child(1) img').attr('src','./images/def.jpg');
-            $('.nav .login>span:nth-child(2) span').text('注册');
-            $('.register-pop .fill').show();
-            // $('.register-pop .user-img').hide();
-            $('.register-pop>button').text('注册');
-            $('.register-pop>button').attr('disabled','');
-        }
-    });
 	//点击登录按钮（修改版）
-	$('.login-pop>#button1').click(function () {
+	$('.login-pop>button').click(function () {
 	    if ($(this).text()=='登录'){
 	        var $userName=$('.login-pop .user input').val();
 	        var $password=$('.login-pop .pass input').val();
 			if($userName=='' ){
-				// alert("账号不能为空");
-                $('.login-pop .prompt>span').text('账号不能为空');
-                $('.login-pop .prompt').show();
+				alert("用户名不能为空");
 				return false;
 			}
 			else if($password==''){
-                // alert("密码不能为空");
-                $('.login-pop .prompt>span').text('密码不能为空');
-                $('.login-pop .prompt').show();
+                alert("密码不能为空");
                 return false;
             }else{
 				var datas={
@@ -610,16 +614,16 @@
 					data:datas,
 					success:function(data){
                         if("error" == data.type){
-                            // alert(data.msg);
-                            $('.login-pop .prompt>span').text(data.msg);
-                            $('.login-pop .prompt').show();
+                            alert(data.msg);
+                            // $("#vcodeImg").click();//切换验证码
+                            // $("input[name='vcode']").val("");//清空验证码输入框
                         }else if("success" == data.type){
                             alert(data.msg);
-                            window.location.href = "index.html";
+                            // window.location.href = "SystemServlet?method=index";
                         }
-                        // else{
-                        //     alert(data.msg);
-                        // }
+                        else{
+                            alert(data.msg);
+                        }
 					},
 					error:function(){
 						alert('false');
@@ -627,17 +631,14 @@
 				});
 			}
 		}else {
-	        // $('.nav .login>span:nth-child(1) img').attr('src','./images/user.png');
-	        // $('.nav .login>span:nth-child(1) span').text('未登录');
-	        // $('.login-pop .fill').show();
-	        // $('.login-pop .user-img').hide();
-	        // $('.login-pop>button').text('登录');
-	        // $('.login-pop>button').attr('disabled','');
+	        $('.nav .login>span:nth-child(1) img').attr('src','./images/def.jpg');
+	        $('.nav .login>span:nth-child(1) span').text('未登录');
+	        $('.login-pop .fill').show();
+	        $('.login-pop .user-img').hide();
+	        $('.login-pop>button').text('登录');
+	        $('.login-pop>button').attr('disabled','');
 	    }
 	});
-    $('.login-pop>#button2').click(function () {
-        $('.register-pop').stop().slideToggle();
-    });
 
 
     //签到
@@ -709,7 +710,7 @@
         var id=$(this).attr('data-id');
         $('.loading').show();
         $.ajax({
-            url:'/playlist/detail?id='+id,
+            url:' http://localhost:3000/playlist/detail?id='+id,
             type:'get',
             success:function (res) {
                 $.ajax({
@@ -924,10 +925,9 @@
         if (i=1){
             $('.ajaxload').show();
             authorMvOffset=0;
-            getmvsecond('/mv/first?limit=50').then(function (data) {
+            getmvsecond('http://localhost:3000/mv/first?limit=50').then(function (data) {
                 $('.mv-second .news').html(data);
                 $('.ajaxload').fadeOut();
             });
         }
     });
-    $('footer').load("play1.html");

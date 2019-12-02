@@ -16,9 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
-        <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,11 +38,15 @@
   </component>
   <component name="ProjectId" id="1UCdM12Gfj2AttPnfKt9LP4Y5tf" />
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="findjar.last.used.dir" value="D:/Eclipse拓展包" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -51,21 +54,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\IDEA_ku\coco_music\web" />
-      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
-      <recent name="F:\IDEA_ku\coco_music\src\util" />
-      <recent name="F:\IDEA_ku\coco_music\src\entity" />
-      <recent name="F:\IDEA_ku\coco_music\src\page" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\WEB-INF\views" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\WEB-INF" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="entity" />
       <recent name="dao" />
-      <recent name="test" />
       <recent name="servlet" />
+      <recent name="entity" />
+      <recent name="test" />
       <recent name="filter" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\IDEA_ku\coco_music\out" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
       <recent name="F:\IDEA_ku\coco_music\web" />
       <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
       <recent name="F:\IDEA_ku\coco_music\web\WEB-INF\views" />
@@ -83,8 +86,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="false">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.45">
+    <configuration name="function.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="function.js" working-dir="$PROJECT_DIR$/web/js">
+      <method v="2" />
+    </configuration>
+    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.94" ALTERNATIVE_JRE_ENABLED="false">
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -97,6 +103,8 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_45_coco_music" />
+        <option name="HTTP_PORT" value="8081" />
+        <option name="JNDI_PORT" value="1000" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -158,6 +166,15 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Node.js.function.js" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.45" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.function.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -178,14 +195,15 @@
       <workItem from="1575014073966" duration="9109000" />
       <workItem from="1575033659405" duration="1804000" />
       <workItem from="1575035601241" duration="4019000" />
-      <workItem from="1575082602168" duration="147000" />
-      <workItem from="1575091760394" duration="7966000" />
-      <workItem from="1575104411468" duration="10153000" />
-      <workItem from="1575116523642" duration="2507000" />
-      <workItem from="1575119065439" duration="3600000" />
-      <workItem from="1575178370477" duration="3250000" />
-      <workItem from="1575181628807" duration="2176000" />
-      <workItem from="1575184218437" duration="2326000" />
+      <workItem from="1575111169896" duration="313000" />
+      <workItem from="1575111669993" duration="103000" />
+      <workItem from="1575112057172" duration="316000" />
+      <workItem from="1575112426305" duration="2467000" />
+      <workItem from="1575121656501" duration="774000" />
+      <workItem from="1575122543833" duration="252000" />
+      <workItem from="1575122919768" duration="1645000" />
+      <workItem from="1575167379772" duration="9105000" />
+      <workItem from="1575206625611" duration="12412000" />
     </task>
     <servers />
   </component>
@@ -193,17 +211,41 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/main.js</url>
+          <line>127</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/main.js</url>
+          <line>97</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/main.js</url>
+          <line>182</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/servlet/SonglikeServelet.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="Data" language="JSP" custom="java.awt.image.DataBuffer,javax.xml.crypto.Data" />
-        <watch expression="data" language="JSP" />
-        <watch expression="datas" language="JSP" />
-        <watch expression="ret" language="JAVA" />
-        <watch expression="JSONObject.toJSON(ret)" language="JAVA" />
-        <watch expression="response" language="JAVA" />
-        <watch expression="ret" language="JAVA" />
-        <watch expression="ret.toString()" language="JAVA" />
+        <watch expression="page.getContent().get(0)" language="JAVA" />
+        <watch expression="page1" language="JAVA" />
+        <watch expression="page" language="JAVA" />
+        <watch expression="page1" language="JAVA" />
+        <watch expression="result" language="JAVA" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/coco_music$Tomcat_8_5_45.ic" NAME="Tomcat 8.5.45 Coverage Results" MODIFIED="1575122643277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

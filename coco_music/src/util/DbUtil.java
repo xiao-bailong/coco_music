@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 public class DbUtil implements DataSource{
 
-	private String dbUrl = "jdbc:mysql://localhost:3306/coco_music?useUnicode=true&characterEncoding=UTF-8";
+	private String dbUrl = "jdbc:mysql://localhost:3306/coco?useUnicode=true&characterEncoding=UTF-8";
 	private String dbUser = "root";
 	private String dbPassword = "123456";
 	private String dbDriver = "com.mysql.jdbc.Driver";

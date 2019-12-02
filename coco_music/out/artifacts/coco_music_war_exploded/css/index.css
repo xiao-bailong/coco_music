@@ -40,14 +40,14 @@ main{
     position: absolute;
     width: 100%;
     top: 0;
-    bottom: 102px;/*改了*/
+    bottom: 62px;
 }
 
 /* 尾部，播放部分 */
 .footer{
     width: 100%;
     /* min-width: 460px; */
-    height: 100px;
+    height: 60px;
     background-color: #fff;
     border: 1px solid #E4E4E7;
     position: absolute;
@@ -364,7 +364,7 @@ main{
     /* text-align: center; */
 }
 .login>span:nth-child(1){
-    width: 120px;
+    width: 80px;//原来120
     text-align: left;
     padding-left: 15px;
     box-sizing: border-box;
@@ -646,11 +646,11 @@ main{
 /*注册框*/
 .register-pop{
     width: 400px;
-    height: 400px;
+    height: 300px;
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -200px;
+    margin-top: -150px;
     margin-left: -200px;
     background-color: #FAFAFC;
     /*border: 1px solid red;*/
@@ -718,23 +718,17 @@ main{
     border: none;
     font-size: 17px;
 }
-.register-pop .username{
+.register-pop .user{
     top: 50px;
 }
-.register-pop .user{
-    top: 90px;
-}
 .register-pop .pass{
-    top: 130px;
-}
-.register-pop .pass2{
-    top: 170px;
+    top: 90px;
 }
 .register-pop>button{
     width: 360px;
     height: 40px;
     position: absolute;
-    top: 300px;
+    top: 210px;
     left: 20px;
     border: none;
     color: #ffffff;
@@ -870,23 +864,12 @@ main{
 .login-pop .pass{
     top: 90px;
 }
-.login-pop>#button1{
-    width: 175px; /*360*/
+.login-pop>button{
+    width: 360px;
     height: 40px;
     position: absolute;
     top: 210px;
     left: 20px;
-    border: none;
-    color: #ffffff;
-    font-size: 17px;
-    background-color: #D83F3F;
-}
-.login-pop>#button2{
-    width: 175px;
-    height: 40px;
-    position: absolute;
-    top: 210px;
-    left: 205px;
     border: none;
     color: #ffffff;
     font-size: 17px;

@@ -15,15 +15,8 @@
     <link rel="icon" type="image/x-icon" href="images/format.ico"/>
     <script src="./js/jquery-1.11.3.min.js"></script>
     <script src="./js/jquery.actual.min.js"></script>
-    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script><!-- 引入第三方插件库 -->
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-    <style>
-        .demo{width:100%}
-        /*.demo p{padding:10px 0}*/
-    </style>
 </head>
-<body id="app" ng-app="">
+<body>
     <main>
         <!-- 左侧导航部分 -->
         <nav class="nav">
@@ -79,13 +72,13 @@
 							<img src="images/user.png" width="20">
 							<span>未登录</span>
 						</span>
-<!--						<span>-->
-<!--							<span>注册</span>-->
-<!--						</span>-->
-                        <span>
+						<span>
+							<span>注册</span>
+						</span>
+							<span>
 							<i class="iconfont icon-tubiaolunkuohua-"></i>
 						</span>
-                        <span>
+							<span>
 							<i class="iconfont icon-shezhi"></i>
 						</span>
                     </div>
@@ -126,7 +119,7 @@
             </div>
         </div>
         <!-- audio标签部分 -->
-<!--        <audio style="display: none" id="audio" src=""></audio>-->
+        <audio style="display: none" id="audio" src=""></audio>
 
     </main>
 
@@ -152,7 +145,7 @@
                     <i class="iconfont icon-shouji"></i>
                 </span>
                 <span>
-                    <input type="text" name="username" placeholder="请输入账号">
+                    <input type="text" name="username" placeholder="请输入user_id">
                 </span>
             </div>
             <div class="pass">
@@ -160,7 +153,7 @@
                     <i class="iconfont icon-mima"></i>
                 </span>
                 <span>
-                    <input type="password" name="pass" placeholder="请输入密码">
+                    <input type="password" name="pass" placeholder="请输入password">
                 </span>
             </div>
         </div>
@@ -171,8 +164,7 @@
             <button type="button">签到</button>
         </div>
 <!--        disabled-->
-        <button type="submit" id="button1">登录</button>
-        <button type="submit" id="button2">注册</button>
+        <button type="submit" >登录</button>
     </div>
 	<!--注册框-->
 	<div class="register-pop">
@@ -180,24 +172,16 @@
 	            <i class="iconfont icon-x"></i>
 	    </span>
 	    <div class="fill">
-	         <span class="prompt">
+	        <!-- <span class="prompt">
 	            <i class="iconfont icon-caution"></i>
 	            <span>密码错误</span>
-	        </span>
-            <div class="username">
-	            <span>
-	                <i class="iconfont icon-shouji"></i>
-	            </span>
-                <span>
-	                <input type="text" placeholder="请输入用户名">
-	            </span>
-            </div>
+	        </span> -->
 	        <div class="user">
 	            <span>
 	                <i class="iconfont icon-shouji"></i>
 	            </span>
 	            <span>
-	                <input type="text" placeholder="请输入账号">
+	                <input type="text" placeholder="请输入手机号">
 	            </span>
 	        </div>
 	        <div class="pass">
@@ -208,16 +192,8 @@
 	                <input type="password" placeholder="请输入密码">
 	            </span>
 	        </div>
-            <div class="pass2">
-	            <span>
-	                <i class="iconfont icon-mima"></i>
-	            </span>
-                <span>
-	                <input type="password" placeholder="请重复密码">
-	            </span>
-            </div>
 	    </div>	
-	    <button type="submit">注册</button>
+	    <button type="submit" disabled>注册</button>
 	</div>
 
     <!-- 歌曲弹窗 -->
@@ -300,16 +276,16 @@
 <!--        </div>-->
 <!--    </div>-->
 
-    <!-- 音量弹窗 -->
-<!--    <div class="sound-pop">  &lt;!&ndash;音量弹窗&ndash;&gt;-->
-<!--        <span><i class="iconfont icon-yinliang"></i></span>-->
-<!--        <div class="sound-bar">-->
-<!--            <span class="sound-schedule"></span>-->
-<!--            <span class="sound-control"><span></span></span>-->
-<!--        </div>-->
-<!--        <div class="triangle">-->
-<!--        </div>-->
-<!--    </div>-->
+<!--     音量弹窗 -->
+    <div class="sound-pop">  <!--音量弹窗-->
+        <span><i class="iconfont icon-yinliang"></i></span>
+        <div class="sound-bar">
+            <span class="sound-schedule"></span>
+            <span class="sound-control"><span></span></span>
+        </div>
+        <div class="triangle">
+        </div>
+    </div>
 
 
     <script>
@@ -317,65 +293,61 @@
     </script>
 
 
-    <!-- 尾部，播放部分 -->
+<!--     尾部，播放部分 -->
     <footer class="footer">
-<!--        <iframe src="play1.html" ></iframe>-->
-<!--        <div ng-include="'./play1.html'"></div>-->
+        <!-- 专辑封面 -->
+        <div class="headimg">
+            <img src="images/def.jpg" width="60" height="60" />
+            <div>
+                <span><i class="iconfont icon-zuoxia01"></i></span>
+                <span><i class="iconfont icon-youshang01"></i></span>
+            </div>
+        </div>
+        <!-- 模块左部分：上一首,播放，暂停，下一首 -->
+        <div class="play">
+            <div class="play-icon">
+                <span><i class="iconfont icon-houtui"></i></span>
+                <span><i class="iconfont icon-bofang1"></i></span>
+                <span><i class="iconfont icon-qianjin"></i></span>
+            </div>
+        </div>
+        <!-- 进度条部分 -->
+        <div class="progress">
+            <span class="musicName"></span>
+            <span class="author"> - </span>
+            <span class="musicTime">
+                <span>00:00</span>
+                <span> / 00:00</span>
+            </span>
+            <div class="progress-bar">
+                <span class="bar"></span>
+                <span class="control"><span></span></span>
+            </div>
+        </div>
+        <!-- 音量部分 -->
+        <div class="sound">
+            <span><i class="iconfont icon-heart2"></i></span>
+            <span><i class="iconfont icon-shunxu"></i></span>
+            <span><i class="iconfont icon-yinliang"></i></span>
+            <span><i class="iconfont icon-liebiao"></i><span>3</span></span>
+        </div>
+		<!-- <div class="player">
+			<button>播放器</button>
+			<a href="docs/login.html">播放器</a>
+		</div> -->
     </footer>
-<!--    <footer class="footer">-->
-<!--        &lt;!&ndash; 专辑封面 &ndash;&gt;-->
-<!--        <div class="headimg">-->
-<!--            <img src="images/def.jpg" width="60" height="60" />-->
-<!--            <div>-->
-<!--                <span><i class="iconfont icon-zuoxia01"></i></span>-->
-<!--                <span><i class="iconfont icon-youshang01"></i></span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; 模块左部分：上一首,播放，暂停，下一首 &ndash;&gt;-->
-<!--        <div class="play">-->
-<!--            <div class="play-icon">-->
-<!--                <span><i class="iconfont icon-houtui"></i></span>-->
-<!--                <span><i class="iconfont icon-bofang1"></i></span>-->
-<!--                <span><i class="iconfont icon-qianjin"></i></span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; 进度条部分 &ndash;&gt;-->
-<!--        <div class="progress">-->
-<!--            <span class="musicName"></span>-->
-<!--            <span class="author"> - </span>-->
-<!--            <span class="musicTime">-->
-<!--                <span>00:00</span>-->
-<!--                <span> / 00:00</span>-->
-<!--            </span>-->
-<!--            <div class="progress-bar">-->
-<!--                <span class="bar"></span>-->
-<!--                <span class="control"><span></span></span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; 音量部分 &ndash;&gt;-->
-<!--        <div class="sound">-->
-<!--            <span><i class="iconfont icon-heart2"></i></span>-->
-<!--            <span><i class="iconfont icon-shunxu"></i></span>-->
-<!--            <span><i class="iconfont icon-yinliang"></i></span>-->
-<!--            <span><i class="iconfont icon-liebiao"></i><span>3</span></span>-->
-<!--        </div>-->
-<!--		&lt;!&ndash; <div class="player">-->
-<!--			<button>播放器</button>-->
-<!--			<a href="docs/login.html">播放器</a>-->
-<!--		</div> &ndash;&gt;-->
-<!--    </footer>-->
 
 
 
-    <!--操作成功提示框-->
-    <!--<div class="tips">-->
-        <!--<i class="iconfont icon-jifen"></i>-->
-        <!--<span>积分+2</span>-->
-    <!--</div>-->
+<!--    &lt;!&ndash;操作成功提示框&ndash;&gt;-->
+<!--    &lt;!&ndash;<div class="tips">&ndash;&gt;-->
+<!--        &lt;!&ndash;<i class="iconfont icon-jifen"></i>&ndash;&gt;-->
+<!--        &lt;!&ndash;<span>积分+2</span>&ndash;&gt;-->
+<!--    &lt;!&ndash;</div>&ndash;&gt;-->
 
 
     <script src="./js/function.js"></script>
-<!--    <script src="./js/play.js"></script>-->
+    <script src="./js/play.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/Cooldog.js"></script>
     <script>
@@ -383,6 +355,6 @@
             $(this).remove();
         });
     </script>
-    <!--<script src="//vjs.zencdn.net/5.19/video.min.js"></script>-->
+    <script src="//vjs.zencdn.net/5.19/video.min.js"></script>
 </body>
 </html>

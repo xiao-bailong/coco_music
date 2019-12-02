@@ -30,24 +30,120 @@ function browserRedirect() {
     }
 }
 
-//初始化歌曲信息函数
+// 初始化歌曲信息函数(原生）
+// function musicInit(){
+//     if(!lists[0].al){
+//         $('.progress .musicName').text(lists[musicIndex].name);
+//         $('.progress .author').text(' - '+lists[musicIndex].artists[0].name);
+//         $('.music-pop .lyr .right>p>span:eq(0)').text(lists[musicIndex].name);
+//         $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').text(lists[musicIndex].artists[0].name);
+//         $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').attr('data-id',lists[musicIndex].artists[0].id);
+//         $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').text(lists[musicIndex].album.name);
+//         $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').attr('data-id',lists[musicIndex].album.id);
+//         $('.search .searchBody .song li span').css('color','');
+//         $('.search .searchBody .song li:eq('+musicIndex+') span').css('color','#C62E2E');
+//         $('.list-pop .list li span').css('color','');
+//         $('.list-pop .list li:eq('+musicIndex+') span').css('color','#C62E2E');
+//         $(audio).attr('src','http://music.163.com/song/media/outer/url?id='+lists[musicIndex].id+'.mp3');
+//         // audio.play();
+//         $.ajax({
+//             url:'/lyric?id='+lists[musicIndex].id,
+//             type:'get',
+//             success:function (res) {
+//                 if (res.nolyric){
+//                     lyr='';
+//                     $('.Lyrics ul').css('top','200px');
+//                     $('.Lyrics ul').html('<li>暂无歌词，请欣赏</li>');
+//                 }else {
+//                     lyr=parseLyric(res.lrc.lyric);
+//                     getlyr();
+//                 }
+//
+//             }
+//         });
+//         $.ajax({
+//             url: '/album?id='+lists[musicIndex].album.id,
+//             type:'get',
+//             success:function (res) {
+//                 $('.headimg img').attr('src',res.album.blurPicUrl);
+//                 $('.music-pop .bg').css({'background':'url('+res.album.blurPicUrl+') center no-repeat','background-size':'cover'});
+//                 $('.music-pop .lyr>.left>.disc').attr('src',res.album.blurPicUrl);
+//             }
+//         });
+//         if (likesMusicId.indexOf(lists[musicIndex].id)!=-1){
+//             $('.sound span:nth-child(1)').attr('class','like');
+//             $('.sound span:nth-child(1) i').attr('class','iconfont icon-like');
+//         }else {
+//             $('.sound span:nth-child(1)').removeAttr('class');
+//             $('.sound span:nth-child(1) i').attr('class','iconfont icon-heart2');
+//         }
+//     }else {
+//         $('.progress .musicName').text(lists[musicIndex].name);
+//         $('.progress .author').text(' - '+lists[musicIndex].ar[0].name);
+//         $('.music-pop .lyr .right>p>span:eq(0)').text(lists[musicIndex].name);
+//         $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').attr('data-id',lists[musicIndex].ar[0].id);
+//         $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').attr('data-id',lists[musicIndex].al.id);
+//         $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').text(lists[musicIndex].ar[0].name);
+//         $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').text(lists[musicIndex].al.name);
+//         $('.list-pop .list li span').css('color','');
+//         $('.list-pop .list li:eq('+musicIndex+') span').css('color','#C62E2E');
+//         $('.search-author .authorHost>ul li span').css('color','');
+//         $('.search-author .authorHost>ul li:eq('+musicIndex+') span').css('color','#C62E2E');
+//         $('.author-cd .bottom>ul li span').css('color','');
+//         $('.author-cd .bottom>ul li:eq('+musicIndex+') span').css('color','#C62E2E');
+//         $(audio).attr('src','http://music.163.com/song/media/outer/url?id='+lists[musicIndex].id+'.mp3');
+//
+//         // audio.play();
+//         $.ajax({
+//             url:'/lyric?id='+lists[musicIndex].id,
+//             type:'get',
+//             success:function (res) {
+//                 if (res.nolyric){
+//                     lyr='';
+//                     $('.Lyrics ul').css('top','200px');
+//                     $('.Lyrics ul').html('<li>暂无歌词，请欣赏</li>');
+//                 }else {
+//                     lyr=parseLyric(res.lrc.lyric);
+//                     getlyr();
+//                 }
+//             }
+//         });
+//         $.ajax({
+//             url: '/album?id='+lists[musicIndex].al.id,
+//             type:'get',
+//             success:function (res) {
+//                 $('.headimg img').attr('src',res.album.blurPicUrl);
+//                 $('.music-pop .bg').css({'background':'url('+res.album.blurPicUrl+') center no-repeat','background-size':'cover'});
+//                 $('.music-pop .lyr>.left>.disc').attr('src',res.album.blurPicUrl);
+//             }
+//         });
+//         if (likesMusicId.indexOf(lists[musicIndex].id)!=-1){
+//             $('.sound span:nth-child(1)').attr('class','like');
+//             $('.sound span:nth-child(1) i').attr('class','iconfont icon-like');
+//         }else {
+//             $('.sound span:nth-child(1)').removeAttr('class');
+//             $('.sound span:nth-child(1) i').attr('class','iconfont icon-heart2');
+//         }
+//     }
+// }
+//syx
 function musicInit(){
-    if(!lists[0].al){
-        $('.progress .musicName').text(lists[musicIndex].name);
-        $('.progress .author').text(' - '+lists[musicIndex].artists[0].name);
-        $('.music-pop .lyr .right>p>span:eq(0)').text(lists[musicIndex].name);
-        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').text(lists[musicIndex].artists[0].name);
-        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').attr('data-id',lists[musicIndex].artists[0].id);
-        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').text(lists[musicIndex].album.name);
-        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').attr('data-id',lists[musicIndex].album.id);
+    if(lists.values[musicIndex].album_name !=""){
+        $('.progress .musicName').text(lists.values[musicIndex].song_name);
+        $('.progress .author').text(' - '+lists.values[musicIndex].author_name);
+        $('.music-pop .lyr .right>p>span:eq(0)').text(lists.values[musicIndex].song_name);
+        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').text(lists.values[musicIndex].author_name);
+        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').attr('data-id',lists.values[musicIndex].author_id);
+        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').text(lists.values[musicIndex].album_name);
+        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').attr('data-id',lists.values[musicIndex].album_id);
         $('.search .searchBody .song li span').css('color','');
         $('.search .searchBody .song li:eq('+musicIndex+') span').css('color','#C62E2E');
         $('.list-pop .list li span').css('color','');
         $('.list-pop .list li:eq('+musicIndex+') span').css('color','#C62E2E');
-        $(audio).attr('src','http://music.163.com/song/media/outer/url?id='+lists[musicIndex].id+'.mp3');
+        $(audio).attr('src','http://music.163.com/song/media/outer/url?id='+lists.values[musicIndex].song_id+'.mp3');
         // audio.play();
         $.ajax({
-            url:'/lyric?id='+lists[musicIndex].id,
+            url:'http://localhost:3000/lyric?id='+lists.values[musicIndex].song_id,
             type:'get',
             success:function (res) {
                 if (res.nolyric){
@@ -62,7 +158,7 @@ function musicInit(){
             }
         });
         $.ajax({
-            url: '/album?id='+lists[musicIndex].album.id,
+            url: 'http://localhost:3000/album?id='+lists.values[musicIndex].album_id,
             type:'get',
             success:function (res) {
                 $('.headimg img').attr('src',res.album.blurPicUrl);
@@ -70,7 +166,7 @@ function musicInit(){
                 $('.music-pop .lyr>.left>.disc').attr('src',res.album.blurPicUrl);
             }
         });
-        if (likesMusicId.indexOf(lists[musicIndex].id)!=-1){
+        if (likesMusicId.indexOf(lists.values[musicIndex].song_id)!=-1){
             $('.sound span:nth-child(1)').attr('class','like');
             $('.sound span:nth-child(1) i').attr('class','iconfont icon-like');
         }else {
@@ -78,24 +174,24 @@ function musicInit(){
             $('.sound span:nth-child(1) i').attr('class','iconfont icon-heart2');
         }
     }else {
-        $('.progress .musicName').text(lists[musicIndex].name);
-        $('.progress .author').text(' - '+lists[musicIndex].ar[0].name);
-        $('.music-pop .lyr .right>p>span:eq(0)').text(lists[musicIndex].name);
-        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').attr('data-id',lists[musicIndex].ar[0].id);
-        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').attr('data-id',lists[musicIndex].al.id);
-        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').text(lists[musicIndex].ar[0].name);
-        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').text(lists[musicIndex].al.name);
+        $('.progress .musicName').text(lists.values[musicIndex].song_name);
+        $('.progress .author').text(' - '+lists.values[musicIndex].author_name);
+        $('.music-pop .lyr .right>p>span:eq(0)').text(lists.values[musicIndex].author_name);
+        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').attr('data-id',lists.values[musicIndex].author_id);
+        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').attr('data-id',lists.values[musicIndex].alnum_id);
+        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(1)').text(lists.values[musicIndex].author_name);
+        $('.music-pop .lyr .right>p>span:eq(1)>span:eq(0)').text(lists.values[musicIndex].album_name);
         $('.list-pop .list li span').css('color','');
         $('.list-pop .list li:eq('+musicIndex+') span').css('color','#C62E2E');
         $('.search-author .authorHost>ul li span').css('color','');
         $('.search-author .authorHost>ul li:eq('+musicIndex+') span').css('color','#C62E2E');
         $('.author-cd .bottom>ul li span').css('color','');
         $('.author-cd .bottom>ul li:eq('+musicIndex+') span').css('color','#C62E2E');
-        $(audio).attr('src','http://music.163.com/song/media/outer/url?id='+lists[musicIndex].id+'.mp3');
+        $(audio).attr('src','http://music.163.com/song/media/outer/url?id='+lists.values[musicIndex].song_id+'.mp3');
 
         // audio.play();
         $.ajax({
-            url:'/lyric?id='+lists[musicIndex].id,
+            url:'http://localhost:3000/lyric?id='+lists.values[musicIndex].song_id,
             type:'get',
             success:function (res) {
                 if (res.nolyric){
@@ -109,7 +205,7 @@ function musicInit(){
             }
         });
         $.ajax({
-            url: '/album?id='+lists[musicIndex].al.id,
+            url: 'http://localhost:3000/album?id='+lists.values[musicIndex].album_id,
             type:'get',
             success:function (res) {
                 $('.headimg img').attr('src',res.album.blurPicUrl);
@@ -117,7 +213,7 @@ function musicInit(){
                 $('.music-pop .lyr>.left>.disc').attr('src',res.album.blurPicUrl);
             }
         });
-        if (likesMusicId.indexOf(lists[musicIndex].id)!=-1){
+        if (likesMusicId.indexOf(lists.values[musicIndex].song_id)!=-1){
             $('.sound span:nth-child(1)').attr('class','like');
             $('.sound span:nth-child(1) i').attr('class','iconfont icon-like');
         }else {
@@ -126,7 +222,43 @@ function musicInit(){
         }
     }
 }
-
+//
+// //syx
+// function musicInit(){
+//     $('.list-pop .list li span').css('color','');
+//     $('.list-pop .list li:eq('+musicIndex+') span').css('color','#C62E2E');
+//     $('.search-author .authorHost>ul li span').css('color','');
+//     $('.search-author .authorHost>ul li:eq('+musicIndex+') span').css('color','#C62E2E');
+//     $('.author-cd .bottom>ul li span').css('color','');
+//     $('.author-cd .bottom>ul li:eq('+musicIndex+') span').css('color','#C62E2E');
+//
+//     $(audio).attr('src','http://music.163.com/song/media/outer/url?id='+lists.values[musicIndex].song_id+'.mp3');
+//         audio.play();
+//             $.ajax({
+//             url:'http://localhost:3000/lyric?id='+lists.values[musicIndex].song_id,
+//             type:'get',
+//             success:function (res) {
+//                 if (res.nolyric){
+//                     lyr='';
+//                     $('.Lyrics ul').css('top','200px');
+//                     $('.Lyrics ul').html('<li>暂无歌词，请欣赏</li>');
+//                 }else {
+//                     lyr=parseLyric(res.lrc.lyric);
+//                     getlyr();
+//                 }
+//             }
+//         });
+//     $.ajax({
+//             url: 'http://localhost:3000/album?id='+'3070416',
+//             type:'get',
+//             success:function (res) {
+//                 $('.headimg img').attr('src',res.album.blurPicUrl);
+//                 $('.music-pop .bg').css({'background':'url('+res.album.blurPicUrl+') center no-repeat','background-size':'cover'});
+//                 $('.music-pop .lyr>.left>.disc').attr('src',res.album.blurPicUrl);
+//             }
+//         });
+//
+// }
 
 //歌词格式化函数
 function parseLyric(text) {
@@ -175,7 +307,7 @@ function formatTime(seconds) {
 function pre(){
     musicIndex--;
     if(musicIndex<0){
-        musicIndex=lists.length-1;
+        musicIndex=lists.values.length-1;
     }
     if(lists!=''){
         musicInit();
@@ -185,7 +317,7 @@ function pre(){
 //下一首函数
 function nex(){
     musicIndex++;
-    if(musicIndex==lists.length&&lists!=''){
+    if(musicIndex==lists.values.length&&lists!=''){
         musicIndex=0;
     }
     if(lists!=''){
@@ -248,7 +380,7 @@ function search(val) {
 //获取搜索历史
 function getSearch() {
     $.ajax({
-        url:'/search/hot',
+        url:'http://localhost:3000/search/hot',
         type:'get',
         success:function (res) {
             var str='';
@@ -360,7 +492,7 @@ function scrollBottomTest(){
             mvOffset+=30;
             isbool=false;
             $.ajax({
-                url:'/search?keywords='+musicText+'&type=1004&offset='+mvOffset,
+                url:'http://localhost:3000/search?keywords='+musicText+'&type=1004&offset='+mvOffset,
                 type:'get',
                 success:function (res) {
                     if (res.result.mvs){
@@ -389,7 +521,7 @@ function authorScrollBottomTest() {
             var id=window.location.search.split('=')[1];
             var str='';
             $.ajax({
-                url:'/artist/mv?id='+id+'&offset='+authorMvOffset,
+                url:'http://localhost:3000/artist/mv?id='+id+'&offset='+authorMvOffset,
                 type:'get',
                 success:function (res) {
                     if (res.mvs){
@@ -415,7 +547,7 @@ function authorScrollBottomTest() {
             var id=window.location.search.split('=')[1];
             var str='';
             $.ajax({
-                url:'/artist/album?id='+id+'&limit=20&offset='+cdOffset,
+                url:'http://localhost:3000/artist/album?id='+id+'&limit=20&offset='+cdOffset,
                 type:'get',
                 success:function (res) {
                     for (let i=0;i<res.hotAlbums.length;i++){
@@ -470,7 +602,7 @@ function mvSecondScrollBottomTest() {
             isbool=false;
             var length=$(this).children().length;
             $.ajax({
-                url:'top/mv?limit=10&offset='+mvOffset,
+                url:'http://localhost:3000/top/mv?limit=10&offset='+mvOffset,
                 type:'get',
                 success:function (res) {
                     var str='';
@@ -581,7 +713,7 @@ function getCd(val) {
 function getMv(val) {
     $('.ajaxload').show();
     $.ajax({
-        url:'/search?keywords='+val+'&type=1004',
+        url:'http://localhost:3000/search?keywords='+val+'&type=1004',
         type:'get',
         success:function (res) {
             var str='';
@@ -652,7 +784,7 @@ function getAuthorCd() {
     if($('.search-author .authorCd').html()==''){
         $('.ajaxload').show();
         $.ajax({
-            url:'/artist/album?id='+id+'&limit=20',
+            url:'http://localhost:3000/artist/album?id='+id+'&limit=20',
             type:'get',
             success:function (res) {
                 for (let i=0;i<res.hotAlbums.length;i++){
@@ -675,7 +807,7 @@ function getAuthorMv() {
     if($('.search-author .authorMv').html()==''){
         $('.ajaxload').show();
         $.ajax({
-            url:'/artist/mv?id='+id,
+            url:'http://localhost:3000/artist/mv?id='+id,
             type:'get',
             success:function (res) {
                 for (let i=0;i<res.mvs.length;i++){
@@ -728,7 +860,7 @@ function getMvUrl(id) {
             history.replaceState({text:$('section').html()}, '');
             $('section').html(res);
             $.ajax({
-                url:'/mv/detail?mvid='+id,
+                url:'http://localhost:3000/mv/detail?mvid='+id,
                 type:'get',
                 success:function (data) {
                     url=data.data.brs;
@@ -811,25 +943,50 @@ function getCdDeta(id) {
 
 //获取banner
 function getBanner() {
-    $.ajax({
-        url:'/banner',
+    var hh = ["http://p1.music.126.net/wDkE95vVjjgAY6xd-G_iTw==/109951164521089290.jpg","http://p1.music.126.net/alwEG8kzqe3JV8JiYm3z4g==/109951164521468660.jpg","http://p1.music.126.net/vVQ3cJ8BbAAwN3lwJ5t-HA==/109951164520330468.jpg","http://p1.music.126.net/67P43u_cIi6etbtCSOg-fA==/109951164521087043.jpg","http://p1.music.126.net/iqFwCK8eCl5lvhhywp4gmA==/109951164521087680.jpg","http://p1.music.126.net/nd90mbmgXGdHaakbViDrZQ==/109951164521083907.jpg","http://p1.music.126.net/UF4Zba9xbh4Ljx-G5mTUOw==/109951164521771239.jpg","http://p1.music.126.net/xr0oKsS-2mH1AxqRTjrFeQ==/109951164521091390.jpg"]
+    // $.ajax({
+    //     url:'/banner',
+    //     type:'get',
+    //     success:function (res) {
+    //         var str='';
+    //         for (let i=0;i<res.banners.length-1;i++){
+    //             str+='<li class="p"'+i+'>'+
+    //                     '<a href="#">'+
+    //                     '<img src='+res.banners[i].imageUrl+'>'+
+    //                     '</a>'+
+    //                 '</li>';
+    //         }
+    //         $('.Cooldog_content>ul').html(str);
+    //         $('.loading').fadeOut();
+    //     }
+    // });
+    var str='';
+    for (let i=0;i<hh.length-1;i++){
+        str+='<li class="p"'+i+'>'+
+            '<a href="#">'+
+            '<img src='+hh[i]+'>'+
+            '</a>'+
+            '</li>';
+    }
+    $('.Cooldog_content>ul').html(str);
+    $('.loading').fadeOut();
+    $.ajax({    //获取推荐歌单
+        url:'http://localhost:300/personalized',
         type:'get',
         success:function (res) {
             var str='';
-            for (let i=0;i<res.banners.length-1;i++){
-                str+='<li class="p"'+i+'>'+
-                        '<a href="#">'+
-                        '<img src='+res.banners[i].imageUrl+'>'+
-                        '</a>'+
-                    '</li>';
+            for (let i=0;i<12;i++){
+                str+='<div data-id='+res.result[i].id+'>' +
+                    '<img src='+res.result[i].picUrl+'>' +
+                    '<span>'+res.result[i].name+'</span>' +
+                    '</div>'
             }
-            $('.Cooldog_content>ul').html(str);
-            $('.loading').fadeOut();
+            $('.find .main .recommend .recommend-song').html(str);
         }
     });
 
     $.ajax({    //获取推荐歌单
-        url:'/personalized',
+        url:'http://localhost:3000/personalized',
         type:'get',
         success:function (res) {
             var str='';
@@ -843,7 +1000,7 @@ function getBanner() {
         }
     });
     $.ajax({        //获取推荐mv
-        url:'/personalized/mv',
+        url:'http://localhost:3000/personalized/mv',
         type:'get',
         success:function (res) {
             var str='';
@@ -868,7 +1025,7 @@ refLogin().then(function (data) {
 function refLogin() {
     return new Promise(function (resolve, reject) {
         $.ajax({
-            url:'/login/status',
+            url:'http://localhost:3000/login/status',
             type:'get',
             success:function (res) {
                 resolve(res.profile.userId);
@@ -882,7 +1039,7 @@ function refLogin() {
                 $('.login-pop .user-img img').attr('src',res.profile.avatarUrl);
                 $('.login-pop .user-img span').text(res.profile.nickname);
                 $.ajax({
-                    url:'/user/detail?uid='+res.profile.userId,
+                    url:'http://localhost:3000/user/detail?uid='+res.profile.userId,
                     type:'get',
                     success:function (data) {
                         if(data.mobileSign){
@@ -894,12 +1051,12 @@ function refLogin() {
                 });
 
                 $.ajax({
-                    url:'/user/playlist?uid='+res.profile.userId,
+                    url:' http://localhost:3000/user/playlist?uid='+res.profile.userId,
                     type:'get',
                     success:function (su) {
                         $('.nav-icon .local li:nth-child(5)').attr('data-id',su.playlist[0].id);
                         $.ajax({
-                            url:'/playlist/detail?id='+su.playlist[0].id,
+                            url:' http://localhost:3000/playlist/detail?id='+su.playlist[0].id,
                             type:'get',
                             success:function (data) {
                                 for (let i=0;i<data.playlist.tracks.length;i++){
@@ -911,7 +1068,7 @@ function refLogin() {
                 });
             },
             error:function () {
-                $('.nav .login>span:nth-child(1) img').attr('src','./images/user.png');
+                $('.nav .login>span:nth-child(1) img').attr('src','./images/def.jpg');
                 $('.nav .login>span:nth-child(1) span').text('未登录');
             }
         });
@@ -921,7 +1078,7 @@ function refLogin() {
 //排行榜
 function getAllSecond(idx,i) {
     $.ajax({
-        url:'/top/list?idx='+idx,
+        url:' http://localhost:3000/top/list?idx='+idx,
         type:'get',
         success:function (res) {
             $('.second .content .divs>div:nth-child('+i+') img').attr('src',res.playlist.coverImgUrl);

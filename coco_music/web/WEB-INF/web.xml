@@ -46,6 +46,15 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <description>登录注册控制类</description>
+        <servlet-name>SonglikeServelet</servlet-name>
+        <servlet-class>servlet.SonglikeServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SonglikeServelet</servlet-name>
+        <url-pattern>/SonglikeServelet</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>DatabaseAccess</servlet-name>
