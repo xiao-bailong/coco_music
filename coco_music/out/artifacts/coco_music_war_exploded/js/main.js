@@ -101,15 +101,46 @@
             var type=$(this).attr('type');
             if ($(this).attr('data-index')==1) {
                 $('.loading').show();
+                $('.loading').fadeOut();
                 $.ajax({
                     url:'../coco_music_war_exploded/search.html',
                     type:'get',
-                    success:function (res) {
+                    success:function (html) {
                         history.replaceState({text:$('section').html()}, '');
-                        $('section').html(res);
-                        getSearch();
-                        scrollBottomTest();
-                        hist(type);
+                        $('section').html(html);
+                        $('section').on('click','.search .input span',function () {
+                            var $key=$('.search .input input').val();
+                            console.log($key);
+                            var datas={
+                                key:$key
+                            };
+                            $.ajax({
+                                url:'SearchServlet?method=SearchSong',
+                                type:'post',
+                                dataType:'json',
+                                data:datas,
+                                success:function (data) {
+                                    haveLists=data  //播放列表
+                                    // console.log(data);
+                                    // haveLists=data.playlist.tracks;
+                                    var str = '';
+                                    for (let i = 0; i < data.values.length; i++) {
+                                        // lists.push(data[i]);
+                                        str += '<li>' +
+                                            '<span>' + data.values[i].song_name + '</span>' +
+                                            '<span>' + data.values[i].author_name + '</span>' +
+                                            '<span>' + data.values[i].album_name + '</span>' +
+                                            '</li>';
+                                    }
+                                    // $('.search .searchBody .song ul').append(str);
+                                    $('.search .searchBody .song ul').html(str);
+                                    $('.search .main').hide();
+                                    $('.search .searchBody').show();
+                                    hist(type);
+                                }
+                            });
+                        });
+
                     }
                 });
             }else if ($(this).attr('data-index')==2){
@@ -281,18 +312,18 @@
     });
 
     //搜索歌曲
-    $('section').on('click','.search .input span',function () {
-        var text=$('.search .input input').val();
-        musicText=text;
-        search(text);
-    });
-    $('section').keydown('.search .input span',function (e) {
-        if (e.which == "13") {
-            var text=$('.search .input input').val();
-            musicText=text;
-            search(text);
-        }
-    });
+    // $('section').on('click','.search .input span',function () {
+    //     var text=$('.search .input input').val();
+    //     musicText=text;
+    //     search(text);
+    // });
+    // $('section').keydown('.search .input span',function (e) {
+    //     if (e.which == "13") {
+    //         var text=$('.search .input input').val();
+    //         musicText=text;
+    //         search(text);
+    //     }
+    // });
     //热门搜索
     $('section').on('click','.search .main .left span',function () {
         var text=$(this).text();
@@ -497,9 +528,6 @@
         $('.login-pop').slideUp();
     });
 	//点击注册，弹出注册框
-	// $('.nav .user .login>span:nth-child(2)').click(function () {
-	//     $('.register-pop').stop().slideToggle();
-	// });
     $('.login-pop>#button2').click(function () {
         $('.register-pop').stop().slideToggle();
     });

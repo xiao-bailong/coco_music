@@ -310,7 +310,7 @@ function pre(){
         musicIndex=lists.values.length-1;
     }
     if(lists!=''){
-        musicInit();
+        // musicInit();
         audio.play();
     }
 }
@@ -321,7 +321,7 @@ function nex(){
         musicIndex=0;
     }
     if(lists!=''){
-        musicInit();
+        // musicInit();
         audio.play();
     }
 }

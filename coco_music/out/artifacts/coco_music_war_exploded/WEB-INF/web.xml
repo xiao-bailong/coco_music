@@ -55,6 +55,16 @@
         <servlet-name>SonglikeServelet</servlet-name>
         <url-pattern>/SonglikeServelet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <description>歌曲搜索控制类</description>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>servlet.SearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>DatabaseAccess</servlet-name>
