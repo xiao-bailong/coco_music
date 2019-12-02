@@ -128,7 +128,7 @@ function browserRedirect() {
 // }
 //syx
 function musicInit(){
-    if(lists.values[musicIndex].album_name !=""){
+    if(!lists.values[musicIndex].album_name){
         $('.progress .musicName').text(lists.values[musicIndex].song_name);
         $('.progress .author').text(' - '+lists.values[musicIndex].author_name);
         $('.music-pop .lyr .right>p>span:eq(0)').text(lists.values[musicIndex].song_name);

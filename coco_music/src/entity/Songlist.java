@@ -1,15 +1,16 @@
 package entity;
 
 public class Songlist {
-	private int songlist_id;
+	private String songlist_id;
 	private String songlist_name;
 	private String picurl;
 
-	public int getSonglist_id() {
+
+	public String getSonglist_id() {
 		return songlist_id;
 	}
 
-	public void setSonglist_id(int songlist_id) {
+	public void setSonglist_id(String songlist_id) {
 		this.songlist_id = songlist_id;
 	}
 

@@ -832,7 +832,7 @@
         $('.sound span:nth-child(4) span').text(lists.length);
         $('.recommend-songs ul li span').css('color','');
         $(this).children().css('color','#C32D2E');
-        musicInit();
+        // musicInit();
         audio.play();
     });
 

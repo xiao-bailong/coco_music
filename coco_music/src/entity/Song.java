@@ -1,18 +1,18 @@
 package entity;
 
 public class Song {
-	private int song_id;
+	private String song_id;
 	private String song_name;
 	private int author_id;
 	private String author_name;
 	private int album_id;
 	private  String album_name;
 
-	public int getSong_id() {
+	public String getSong_id() {
 		return song_id;
 	}
 
-	public void setSong_id(int song_id) {
+	public void setSong_id(String song_id) {
 		this.song_id = song_id;
 	}
 

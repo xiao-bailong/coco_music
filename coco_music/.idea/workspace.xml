@@ -6,7 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00a0448e-dab4-4db5-a769-e2adfc3e728c" name="Default Changelist" comment="" />
+    <list default="true" id="00a0448e-dab4-4db5-a769-e2adfc3e728c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Song_like.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Song_like.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Songlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Songlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/SonglikeServelet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/SonglikeServelet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/main.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +102,7 @@
     <configuration name="function.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="function.js" working-dir="$PROJECT_DIR$/web/js">
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.94" ALTERNATIVE_JRE_ENABLED="false">
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -108,7 +116,7 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_45_coco_music" />
         <option name="HTTP_PORT" value="8081" />
-        <option name="JNDI_PORT" value="1000" />
+        <option name="JNDI_PORT" value="1001" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -209,6 +217,7 @@
       <workItem from="1575167379772" duration="9105000" />
       <workItem from="1575206625611" duration="12412000" />
       <workItem from="1575269667298" duration="3169000" />
+      <workItem from="1575274177802" duration="1210000" />
     </task>
     <servers />
   </component>
@@ -220,7 +229,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -242,7 +253,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/main.js</url>
           <line>182</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

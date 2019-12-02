@@ -101,7 +101,7 @@ public class SonglikeServelet extends HttpServlet {
         //
         for (int i = 0; i < content.size(); i++) {
             Page<Song> page1 = new Page<Song>(1, 999);
-            int song_id = content.get(i).getSong_id();
+            String song_id = content.get(i).getSong_id();
             page1.getSearchProporties().add(new SearchProperty("song_id", ""+song_id, Operator.EQ));
             page1 = songdao.findList(page1);
             result.add(page1.getContent().get(0));
