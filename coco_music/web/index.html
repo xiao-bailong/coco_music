@@ -72,10 +72,10 @@
 							<img src="images/user.png" width="20">
 							<span>未登录</span>
 						</span>
-						<span>
-							<span>注册</span>
-						</span>
-							<span>
+<!--						<span>-->
+<!--							<span>注册</span>-->
+<!--						</span>-->
+                        <span>
 							<i class="iconfont icon-tubiaolunkuohua-"></i>
 						</span>
 							<span>
@@ -145,7 +145,7 @@
                     <i class="iconfont icon-shouji"></i>
                 </span>
                 <span>
-                    <input type="text" name="username" placeholder="请输入user_id">
+                    <input type="text" name="username" placeholder="请输入账号">
                 </span>
             </div>
             <div class="pass">
@@ -153,7 +153,7 @@
                     <i class="iconfont icon-mima"></i>
                 </span>
                 <span>
-                    <input type="password" name="pass" placeholder="请输入password">
+                    <input type="password" name="pass" placeholder="请输入密码">
                 </span>
             </div>
         </div>
@@ -163,38 +163,55 @@
             <span>马大晨</span>
             <button type="button">签到</button>
         </div>
-<!--        disabled-->
-        <button type="submit" >登录</button>
+        <!--        disabled-->
+        <button type="submit" id="button1">登录</button>
+        <button type="submit" id="button2">注册</button>
     </div>
 	<!--注册框-->
-	<div class="register-pop">
+    <div class="register-pop">
 	    <span class="close">
 	            <i class="iconfont icon-x"></i>
 	    </span>
-	    <div class="fill">
-	        <!-- <span class="prompt">
+        <div class="fill">
+	         <span class="prompt">
 	            <i class="iconfont icon-caution"></i>
 	            <span>密码错误</span>
-	        </span> -->
-	        <div class="user">
+	        </span>
+            <div class="username">
 	            <span>
 	                <i class="iconfont icon-shouji"></i>
 	            </span>
-	            <span>
-	                <input type="text" placeholder="请输入手机号">
+                <span>
+	                <input type="text" placeholder="请输入用户名">
 	            </span>
-	        </div>
-	        <div class="pass">
+            </div>
+            <div class="user">
+	            <span>
+	                <i class="iconfont icon-shouji"></i>
+	            </span>
+                <span>
+	                <input type="text" placeholder="请输入账号">
+	            </span>
+            </div>
+            <div class="pass">
 	            <span>
 	                <i class="iconfont icon-mima"></i>
 	            </span>
-	            <span>
+                <span>
 	                <input type="password" placeholder="请输入密码">
 	            </span>
-	        </div>
-	    </div>	
-	    <button type="submit" disabled>注册</button>
-	</div>
+            </div>
+            <div class="pass2">
+	            <span>
+	                <i class="iconfont icon-mima"></i>
+	            </span>
+                <span>
+	                <input type="password" placeholder="请重复密码">
+	            </span>
+            </div>
+        </div>
+        <button type="submit">注册</button>
+    </div>
 
     <!-- 歌曲弹窗 -->
     <div class="music-pop">

@@ -35,7 +35,7 @@
         $('.list-pop .list>ul').html(str);
         $('.list-pop .list>ul li:eq('+musicIndex+') span').css('color','rgb(198, 46, 46)');
         $('.sound span:nth-child(4) span').text(lists.length);
-        musicInit();
+        // musicInit();
         audio.currentTime=music.currenttime;
         $('.sound>span:nth-child(2) i').attr('class',music.playmode);
         music=null;
@@ -333,7 +333,7 @@
     $('section').on('click','.search .searchBody .song li',function () {
         musicIndex=$(this).attr('data-index');
         lists=haveLists;
-        musicInit();
+        // musicInit();
         audio.play();
     });
 
@@ -385,7 +385,7 @@
         }
         $('.list-pop .list>ul').html(str);
         $('.sound span:nth-child(4) span').text(lists.length);
-        musicInit();
+        // musicInit();
         audio.play();
     });
 
@@ -497,148 +497,140 @@
         $('.login-pop').slideUp();
     });
 	//点击注册，弹出注册框
-	$('.nav .user .login>span:nth-child(2)').click(function () {
-	    $('.register-pop').stop().slideToggle();
-	});
+	// $('.nav .user .login>span:nth-child(2)').click(function () {
+	//     $('.register-pop').stop().slideToggle();
+	// });
+    $('.login-pop>#button2').click(function () {
+        $('.register-pop').stop().slideToggle();
+    });
 	//关闭注册框
 	$('.register-pop .close').click(function () {
 	    $('.register-pop').slideUp();
 	});
-    //点击注册按钮
+    //点击注册按钮(修改版)
     $('.register-pop>button').click(function () {
         if ($(this).text()=='注册'){
-            var userName=$('.register-pop .user input').val();
-            var password=$('.register-pop .pass input').val();
-            $.ajax({
-                url:'/login/cellphone?phone='+userName+'&password='+password,
-                xhrFields: {
-                    withCredentials: true
-                },
-                type:'get',
-                success:function (res) {
-                    if (res.code==200){ //登陆成功
-                        // $('.nav .login>span:nth-child(1) img').attr('src',res.profile.avatarUrl);
-                        // $('.nav .login>span:nth-child(2) span').text(res.profile.nickname);
-                        // $('.register-pop .user-img img').attr('src',res.profile.avatarUrl);
-                        $('.register-pop').slideUp();
-                        $('.register-pop .fill').hide();
-                        $('.register-pop .user-img').show();
-                        $('.register-pop>button').text('切换账号');
-                        $('.register-pop>button').removeAttr('disabled');
-                        $('.register-pop>button').attr('class','selected');
-                        $('.register-pop .user input').val('');
-                        $('.register-pop .pass input').val('');
-                    }else if (res.code==400) {
-                        $('.register-pop .prompt>span').text('账号不存在');
-                        $('.register-pop .prompt').show();
-                    }else {
-                        $('.register-pop .prompt>span').text(res.msg);
-                        $('.register-pop .prompt').show();
+            var $name=$('.register-pop .username input').val();
+            var $user_id=$('.register-pop .user input').val();
+            var $password=$('.register-pop .pass input').val();
+            var $password2=$('.register-pop .pass2 input').val();
+            if($name=='' ){
+                // alert("用户名不能为空");
+                $('.register-pop .prompt>span').text('用户名不能为空');
+                $('.register-pop .prompt').show();
+                return false;
+            }
+            else if($user_id==''){
+                // alert("账号不能为空");
+                $('.register-pop .prompt>span').text('账号不能为空');
+                $('.register-pop .prompt').show();
+                return false;
+            }
+            else if($password==''){
+                // alert("密码不能为空");
+                $('.register-pop .prompt>span').text('密码不能为空');
+                $('.register-pop .prompt').show();
+                return false;
+            }
+            else if($password!=$password2){
+                // alert("两次密码不一致");
+                $('.register-pop .prompt>span').text('两次密码不一致');
+                $('.register-pop .prompt').show();
+                return false;
+            } else{
+                var datas={
+                    name:$name,
+                    user_id:$user_id,
+                    password:$password
+                };
+                $.ajax({
+                    url:'LoginServlet?method=registeAct',
+                    type:'post',
+                    dataType:'json',
+                    data:datas,
+                    success:function(data){
+                        if("error" == data.type){
+                            // alert(data.msg);
+                            $('.register-pop .prompt>span').text(data.msg);
+                            $('.register-pop .prompt').show();
+                        }else if("success" == data.type){
+                            alert(data.msg);
+                            $('.register-pop').slideUp();/*关闭注册框*/
+                        }
+                    },
+                    error:function(){
+                        alert('false');
                     }
-                }
-            });
+                });
+            }
         }else {
             // $('.nav .login>span:nth-child(1) img').attr('src','./images/def.jpg');
-            $('.nav .login>span:nth-child(2) span').text('注册');
-            $('.register-pop .fill').show();
-            // $('.register-pop .user-img').hide();
-            $('.register-pop>button').text('注册');
-            $('.register-pop>button').attr('disabled','');
+            // $('.nav .login>span:nth-child(2) span').text('注册');
+            // $('.register-pop .fill').show();
+            // // $('.register-pop .user-img').hide();
+            // $('.register-pop>button').text('注册');
+            // $('.register-pop>button').attr('disabled','');
         }
     });
 
-    //点击登录按钮
-    // $('.login-pop>button').click(function () {
-    //     if ($(this).text()=='登录'){
-    //         var userName=$('.login-pop .user input').val();
-    //         var password=$('.login-pop .pass input').val();
-    //         $.ajax({
-    //             url:'/login/cellphone?phone='+userName+'&password='+password,
-    //             xhrFields: {
-    //                 withCredentials: true
-    //             },
-    //             type:'get',
-    //             success:function (res) {
-    //                 if (res.code==200){ //登陆成功
-    //                     $('.nav .login>span:nth-child(1) img').attr('src',res.profile.avatarUrl);
-    //                     $('.nav .login>span:nth-child(1) span').text(res.profile.nickname);
-    //                     $('.login-pop .user-img img').attr('src',res.profile.avatarUrl);
-    //                     $('.login-pop').slideUp();
-    //                     $('.login-pop .fill').hide();
-    //                     $('.login-pop .user-img').show();
-    //                     $('.login-pop>button').text('切换账号');
-    //                     $('.login-pop>button').removeAttr('disabled');
-    //                     $('.login-pop>button').attr('class','selected');
-    //                     $('.login-pop .user input').val('');
-    //                     $('.login-pop .pass input').val('');
-    //                 }else if (res.code==400) {
-    //                     $('.login-pop .prompt>span').text('账号不存在');
-    //                     $('.login-pop .prompt').show();
-    //                 }else {
-    //                     $('.login-pop .prompt>span').text(res.msg);
-    //                     $('.login-pop .prompt').show();
-    //                 }
-    //             }
-    //         });
-    //     }else {
-    //         $('.nav .login>span:nth-child(1) img').attr('src','./images/def.jpg');
-    //         $('.nav .login>span:nth-child(1) span').text('未登录');
-    //         $('.login-pop .fill').show();
-    //         $('.login-pop .user-img').hide();
-    //         $('.login-pop>button').text('登录');
-    //         $('.login-pop>button').attr('disabled','');
-    //     }
-    // });
-	//点击登录按钮（修改版）
-	$('.login-pop>button').click(function () {
-	    if ($(this).text()=='登录'){
-	        var $userName=$('.login-pop .user input').val();
-	        var $password=$('.login-pop .pass input').val();
-			if($userName=='' ){
-				alert("用户名不能为空");
-				return false;
-			}
-			else if($password==''){
-                alert("密码不能为空");
+    //点击登录按钮（修改版）
+    $('.login-pop>#button1').click(function () {
+        if ($(this).text()=='登录'){
+            var $userName=$('.login-pop .user input').val();
+            var $password=$('.login-pop .pass input').val();
+            if($userName=='' ){
+                // alert("账号不能为空");
+                $('.login-pop .prompt>span').text('账号不能为空');
+                $('.login-pop .prompt').show();
+                return false;
+            }
+            else if($password==''){
+                // alert("密码不能为空");
+                $('.login-pop .prompt>span').text('密码不能为空');
+                $('.login-pop .prompt').show();
                 return false;
             }else{
-				var datas={
-					username:$userName,
-					pass:$password
-				};
+                var datas={
+                    username:$userName,
+                    pass:$password
+                };
                 // var datas = $(".login-pop .fill").serialize();
-				$.ajax({
-					url:'LoginServlet?method=loginAct',
-					type:'post',
-					dataType:'json',
-					data:datas,
-					success:function(data){
+                $.ajax({
+                    url:'LoginServlet?method=loginAct',
+                    type:'post',
+                    dataType:'json',
+                    data:datas,
+                    success:function(data){
                         if("error" == data.type){
-                            alert(data.msg);
-                            // $("#vcodeImg").click();//切换验证码
-                            // $("input[name='vcode']").val("");//清空验证码输入框
+                            // alert(data.msg);
+                            $('.login-pop .prompt>span').text(data.msg);
+                            $('.login-pop .prompt').show();
                         }else if("success" == data.type){
                             alert(data.msg);
-                            // window.location.href = "SystemServlet?method=index";
+                            // window.location.href = "index.html";
+                            $('.nav .login>span:nth-child(1) img').attr('src','images/user.png');
+                            $('.nav .login>span:nth-child(1) span').text(data.name);
+                            $('.login-pop').slideUp();
                         }
-                        else{
-                            alert(data.msg);
-                        }
-					},
-					error:function(){
-						alert('false');
-					}
-				});
-			}
-		}else {
-	        $('.nav .login>span:nth-child(1) img').attr('src','./images/def.jpg');
-	        $('.nav .login>span:nth-child(1) span').text('未登录');
-	        $('.login-pop .fill').show();
-	        $('.login-pop .user-img').hide();
-	        $('.login-pop>button').text('登录');
-	        $('.login-pop>button').attr('disabled','');
-	    }
-	});
+                        // else{
+                        //     alert(data.msg);
+                        // }
+                    },
+                    error:function(){
+                        alert('false');
+                    }
+                });
+            }
+        }else {
+            // $('.nav .login>span:nth-child(1) img').attr('src','./images/user.png');
+            // $('.nav .login>span:nth-child(1) span').text('未登录');
+            // $('.login-pop .fill').show();
+            // $('.login-pop .user-img').hide();
+            // $('.login-pop>button').text('登录');
+            // $('.login-pop>button').attr('disabled','');
+        }
+    });
+
 
 
     //签到

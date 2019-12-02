@@ -971,7 +971,7 @@ function getBanner() {
     $('.Cooldog_content>ul').html(str);
     $('.loading').fadeOut();
     $.ajax({    //获取推荐歌单
-        url:'http://localhost:300/personalized',
+        url:'http://localhost:3000/personalized',
         type:'get',
         success:function (res) {
             var str='';
