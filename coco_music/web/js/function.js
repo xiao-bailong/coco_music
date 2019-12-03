@@ -859,6 +859,7 @@ function getMvUrl(id) {
         success:function (res) {
             history.replaceState({text:$('section').html()}, '');
             $('section').html(res);
+            // 原生
             $.ajax({
                 url:'http://localhost:3000/mv/detail?mvid='+id,
                 type:'get',
@@ -895,11 +896,28 @@ function getMvUrl(id) {
                     history.replaceState({text:$('section').html()}, '');
                 }
             });
+            // $.ajax({
+            //     url:'MvServelet?method=GetMvData',
+            //     type:'post',
+            //     dataType:'json',
+            //     data: {id: id},
+            //     success:function (data) {
+            //         console.log(data)
+            //         url=data.values[0].mv_url;
+            //         audio.pause();
+            //
+            //         $('video').attr('src',url);
+            //
+            //         $('.loading').fadeOut();
+            //         history.pushState({}, '', '?mvid='+id);
+            //         history.replaceState({text:$('section').html()}, '');
+            //     }
+            // });
         }
     })
 }
 
-//获取专辑详情
+//获取专辑详情(原生)
 function getCdDeta(id) {
     $('.loading').show();
     $.ajax({
@@ -940,6 +958,77 @@ function getCdDeta(id) {
         }
     });
 }
+// //获取专辑详情(syx)
+// function getCdDeta(id) {
+//     $('.loading').show();
+//     $.ajax({
+//         url:'cd.html',
+//         type:'get',
+//         success:function (html) {
+//             history.replaceState({text:$('section').html()}, '');
+//             $('section').html(html);
+//             $.ajax({
+//                 url:'SonglistServelet?method=GetSongListDatabyid',
+//                 type:'post',
+//                 data: {id: id},
+//                 success:function (res) {
+//                     haveLists=res.songs;
+//                     $('.author-cd .top>div img').attr('src',res.values[0].picurl);
+//                     $('.author-cd .top>div p:nth-child(2)').text(res.album.name);
+//                     $('.author-cd .top>div p:nth-child(3)').html('<span>歌手：'+res.album.artist.name+'</span><span>时间：'+fmtDate(res.album.publishTime)+'</span>');
+//                     if(res.album.description){
+//                         $('.author-cd .top>div p:nth-child(4)').text('介绍：'+res.album.description);
+//                     }else {
+//                         $('.author-cd .top>div p:nth-child(4)').text('介绍：暂无介绍');
+//                     }
+//                     $('.author-cd .bottom>p span').text(res.songs.length);
+//                     var str='';
+//                     for (let i=0;i<res.songs.length;i++){
+//                         str+='<li>' +
+//                             '<span>'+num(i+1)+'</span>' +
+//                             '<span>'+res.songs[i].name+'</span>' +
+//                             '<span>'+res.songs[i].ar[0].name+'</span>' +
+//                             '<span>热度：'+res.songs[i].pop+'</span>' +
+//                             '</li>'
+//                     }
+//                     $('.author-cd .bottom>ul').html(str);
+//                     $('.loading').fadeOut();
+//                     history.pushState({}, '', '?cdid='+id);
+//                     history.replaceState({text:$('section').html()}, '');
+//                 }
+//             });
+//             $.ajax({
+//                 url:'/album?id='+id,
+//                 type:'get',
+//                 success:function (res) {
+//                     haveLists=res.songs;
+//                     $('.author-cd .top>div img').attr('src',res.album.blurPicUrl);
+//                     $('.author-cd .top>div p:nth-child(2)').text(res.album.name);
+//                     $('.author-cd .top>div p:nth-child(3)').html('<span>歌手：'+res.album.artist.name+'</span><span>时间：'+fmtDate(res.album.publishTime)+'</span>');
+//                     if(res.album.description){
+//                         $('.author-cd .top>div p:nth-child(4)').text('介绍：'+res.album.description);
+//                     }else {
+//                         $('.author-cd .top>div p:nth-child(4)').text('介绍：暂无介绍');
+//                     }
+//                     $('.author-cd .bottom>p span').text(res.songs.length);
+//                     var str='';
+//                     for (let i=0;i<res.songs.length;i++){
+//                         str+='<li>' +
+//                             '<span>'+num(i+1)+'</span>' +
+//                             '<span>'+res.songs[i].name+'</span>' +
+//                             '<span>'+res.songs[i].ar[0].name+'</span>' +
+//                             '<span>热度：'+res.songs[i].pop+'</span>' +
+//                             '</li>'
+//                     }
+//                     $('.author-cd .bottom>ul').html(str);
+//                     $('.loading').fadeOut();
+//                     history.pushState({}, '', '?cdid='+id);
+//                     history.replaceState({text:$('section').html()}, '');
+//                 }
+//             });
+//         }
+//     });
+// }
 
 //获取banner
 function getBanner() {
@@ -970,45 +1059,80 @@ function getBanner() {
     }
     $('.Cooldog_content>ul').html(str);
     $('.loading').fadeOut();
+   //原生
+   //  $.ajax({    //获取推荐歌单
+   //      url:'http://localhost:3000/personalized',
+   //      type:'get',
+   //      success:function (res) {
+   //          var str='';
+   //          for (let i=0;i<12;i++){
+   //              str+='<div data-id='+res.result[i].id+'>' +
+   //                  '<img src='+res.result[i].picUrl+'>' +
+   //                  '<span>'+res.result[i].name+'</span>' +
+   //                  '</div>'
+   //          }
+   //          $('.find .main .recommend .recommend-song').html(str);
+   //      }
+   //  });
+    //syx
     $.ajax({    //获取推荐歌单
-        url:'http://localhost:3000/personalized',
-        type:'get',
+        url:'SonglistServelet?method=GetSongListData',
+        type:'post',
+        dataType:'json',
         success:function (res) {
+            console.log(res)
             var str='';
-            for (let i=0;i<12;i++){
-                str+='<div data-id='+res.result[i].id+'>' +
-                    '<img src='+res.result[i].picUrl+'>' +
-                    '<span>'+res.result[i].name+'</span>' +
+            for (let i=0;i<6;i++){
+                str+='<div data-id='+res.values[i].songlist_id+'>' +
+                    '<img src='+res.values[i].picurl+'>' +
+                    '<span>'+res.values[i].songlist_name+'</span>' +
                     '</div>'
             }
             $('.find .main .recommend .recommend-song').html(str);
         }
     });
 
-    $.ajax({    //获取推荐歌单
-        url:'http://localhost:3000/personalized',
-        type:'get',
-        success:function (res) {
-            var str='';
-            for (let i=0;i<12;i++){
-                str+='<div data-id='+res.result[i].id+'>' +
-                    '<img src='+res.result[i].picUrl+'>' +
-                    '<span>'+res.result[i].name+'</span>' +
-                    '</div>'
-            }
-            $('.find .main .recommend .recommend-song').html(str);
-        }
-    });
+    // $.ajax({    //获取推荐歌单
+    //     url:'http://localhost:3000/personalized',
+    //     type:'get',
+    //     success:function (res) {
+    //         var str='';
+    //         for (let i=0;i<12;i++){
+    //             str+='<div data-id='+res.result[i].id+'>' +
+    //                 '<img src='+res.result[i].picUrl+'>' +
+    //                 '<span>'+res.result[i].name+'</span>' +
+    //                 '</div>'
+    //         }
+    //         $('.find .main .recommend .recommend-song').html(str);
+    //     }
+    // });
+    //原生
+    // $.ajax({        //获取推荐mv
+    //     url:'http://localhost:3000/personalized/mv',
+    //     type:'get',
+    //     success:function (res) {
+    //         var str='';
+    //         for (let i=0;i<res.result.length;i++){
+    //             str+='<div data-id='+res.result[i].id+'>' +
+    //                 '<img src='+res.result[i].picUrl+'>' +
+    //                 '<span>'+res.result[i].name+'</span>' +
+    //                 '<span>'+res.result[i].artistName+'</span>' +
+    //                 '</div>'
+    //         }
+    //         $('.find .main .recommend .recommend-mv').html(str);
+    //     }
+    // });
     $.ajax({        //获取推荐mv
-        url:'http://localhost:3000/personalized/mv',
-        type:'get',
+        url:'MvlistServelet?method=GetMvListData',
+        type:'post',
+        dataType:'json',
         success:function (res) {
             var str='';
-            for (let i=0;i<res.result.length;i++){
-                str+='<div data-id='+res.result[i].id+'>' +
-                    '<img src='+res.result[i].picUrl+'>' +
-                    '<span>'+res.result[i].name+'</span>' +
-                    '<span>'+res.result[i].artistName+'</span>' +
+            for (let i=0;i<res.values.length;i++){
+                str+='<div data-id='+res.values[i].mv_id+'>' +
+                    '<img src='+res.values[i].picurl+'>' +
+                    '<span>'+res.values[i].mv_name+'</span>' +
+                    '<span>'+res.values[i].author_name+'</span>' +
                     '</div>'
             }
             $('.find .main .recommend .recommend-mv').html(str);
@@ -1105,25 +1229,54 @@ function getDayDate() {
     $('.find .main .recommend .ranking>div:nth-child(2)>div').text(time.getDate());
     $('.recommend-songs .coffee div').text(time.getDate());
 }
+//原生
+// function getrecommend(){
+//     $.ajax({
+//         url:'/recommend/songs',
+//         type:'get',
+//         success:function (res) {
+//             haveLists=res.recommend;
+//             if (res.code!=301){
+//                 var str='';
+//                 for (let i=0;i<res.recommend.length;i++){
+//                     str+='<li>' +
+//                         '<span>'+num(i+1)+'</span>' +
+//                         '<span>'+res.recommend[i].name+'</span>' +
+//                         '<span>'+res.recommend[i].artists[0].name+'</span>' +
+//                         '<span>'+res.recommend[i].album.name+'</span>' +
+//                         '</li>'
+//                 }
+//             }else {
+//                 alert('未登录！');
+//             }
+//             $('.recommend-songs ul').html(str);
+//             $('.loading').fadeOut();
+//             hist('recommend');
+//         }
+//     });
+// }
+//syx
 function getrecommend(){
     $.ajax({
-        url:'/recommend/songs',
-        type:'get',
+        url:'RecommendServelet?method=GetRecommendsong',
+        type:'post',
+        dataType:'json',
         success:function (res) {
-            haveLists=res.recommend;
-            if (res.code!=301){
-                var str='';
-                for (let i=0;i<res.recommend.length;i++){
-                    str+='<li>' +
-                        '<span>'+num(i+1)+'</span>' +
-                        '<span>'+res.recommend[i].name+'</span>' +
-                        '<span>'+res.recommend[i].artists[0].name+'</span>' +
-                        '<span>'+res.recommend[i].album.name+'</span>' +
-                        '</li>'
-                }
-            }else {
-                alert('未登录！');
+            console.log(res)
+            haveLists=res;
+            // if (res.code!=301){
+            var str='';
+            for (let i=0;i<res.values.length;i++){
+                str+='<li>' +
+                    '<span>'+num(i+1)+'</span>' +
+                    '<span>'+res.values[i].song_name+'</span>' +
+                    '<span>'+res.values[i].author_name+'</span>' +
+                    '<span>'+res.values[i].album_name+'</span>' +
+                    '</li>'
             }
+            // }else {
+            //     alert('未登录！');
+            // }
             $('.recommend-songs ul').html(str);
             $('.loading').fadeOut();
             hist('recommend');

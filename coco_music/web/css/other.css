@@ -416,6 +416,7 @@
 }
 .author-cd .top>p{
     color: #ADADAE;
+    font-size: 16px;
 }
 .author-cd .top>div{
     width: 100%;
@@ -424,18 +425,19 @@
     position: relative;
 }
 .author-cd .top>div img{
-    width: 200px;
-    height: 200px;
-    border: 1px solid #DDDDE1;
+    width: 190px;
+    height: 190px;
+    border: 2px solid #DDDDE1;
 }
 .author-cd .top>div p:nth-child(2){
-    font-size: 17px;
+    font-size: 20px;
     position: absolute;
     top: 0;
     left: 230px;
 }
 .author-cd .top>div p:nth-child(3){
     color: #ADADAE;
+    font-size: 15px;
     position: absolute;
     top: 35px;
     left: 230px;
@@ -444,6 +446,7 @@
     margin-right: 15px;
 }
 .author-cd .top>div p:nth-child(4){
+    font-size: 14px;
     color: #ADADAE;
     position: absolute;
     top: 65px;
@@ -500,13 +503,15 @@
     position: relative;
 }
 .find-nav>p{
+    margin-top: -5px;
+    font-size: 16px;
     width: 100%;
     color: #757575;
     text-align: left;
     overflow: hidden;
 }
 .find-nav>ul{
-    margin-top: 10px;
+    margin-top: 2px;
 }
 .find .main{
     width: 100%;
