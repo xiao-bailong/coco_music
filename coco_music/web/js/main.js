@@ -120,23 +120,29 @@
                                 dataType:'json',
                                 data:datas,
                                 success:function (data) {
-                                    haveLists=data  //播放列表
-                                    // console.log(data);
-                                    // haveLists=data.playlist.tracks;
-                                    var str = '';
-                                    for (let i = 0; i < data.values.length; i++) {
-                                        // lists.push(data[i]);
-                                        str += '<li>' +
-                                            '<span>' + data.values[i].song_name + '</span>' +
-                                            '<span>' + data.values[i].author_name + '</span>' +
-                                            '<span>' + data.values[i].album_name + '</span>' +
-                                            '</li>';
+                                    if(data.type=='error'){
+                                        alert(data.msg);
                                     }
-                                    // $('.search .searchBody .song ul').append(str);
-                                    $('.search .searchBody .song ul').html(str);
-                                    $('.search .main').hide();
-                                    $('.search .searchBody').show();
-                                    hist(type);
+                                    else {
+                                        haveLists = data  //播放列表
+                                        // console.log(data);
+                                        // haveLists=data.playlist.tracks;
+                                        var str = '';
+                                        for (let i = 0; i < data.values.length; i++) {
+                                            // lists.push(data[i]);
+                                            str += '<li data-index=' + i + '>' +
+                                                '<span>' + data.values[i].song_name + '</span>' +
+                                                '<span>' + data.values[i].author_name + '</span>' +
+                                                '<span>' + data.values[i].album_name + '</span>' +
+                                                '</li>';
+                                        }
+                                        // $('.search .searchBody .song ul').append(str);
+                                        $('.search .searchBody .song ul').html(str);
+                                        $('.search .main').hide();
+                                        $('.search .searchBody').show();
+                                        $('.sound span:nth-child(4) span').text(haveLists.length);
+                                        hist(type);
+                                    }
                                 }
                             });
                         });
@@ -364,7 +370,7 @@
     $('section').on('click','.search .searchBody .song li',function () {
         musicIndex=$(this).attr('data-index');
         lists=haveLists;
-        // musicInit();
+        musicInit();
         audio.play();
     });
 
@@ -518,10 +524,22 @@
 	//         $('.register-pop button').attr('class','').attr('disabled','');
 	//     }
 	// });
-
+    $('.set-pop>#quit').click(function () {
+        $('.nav .login>span:nth-child(1) span').text("未登录");
+        $('.set-pop').slideUp();//关不掉
+    });
     //点击未登录，弹出登录框
     $('.nav .user .login>span:nth-child(1)').click(function () {
-        $('.login-pop').stop().slideToggle();
+        if($('.nav .login>span:nth-child(1) span').text()=='未登录'){
+            $('.login-pop').stop().slideToggle();
+        }
+        else{
+            $('.set-pop').stop().slideToggle();
+        }
+    });
+    //关闭个人设置框
+    $('.set-pop .close').click(function () {
+        $('.set-pop').slideUp();
     });
     //关闭登录框
     $('.login-pop .close').click(function () {

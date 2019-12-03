@@ -4,7 +4,7 @@ $(function () {
 	$('section').on('mouseover','.Cooldog_content'/* 改了这 */,function () {
 		clearInterval(timer);//停止图片循环
 	}).on('mouseleave','.Cooldog_container',function () {
-		timer = setInterval(btn_right, 4000);//设置图片循环
+		timer = setInterval(btn_right, 10000);//设置图片循环
 	});
 
 	
@@ -16,14 +16,16 @@ $(function () {
 	$('section').on('click', '.btn_left',function () {
 		btn_left();
 	});
-	
+	// $('.Cooldog_container .btn_left').click(function () {
+	// 	btn_left();
+	// });
 	//下一张
 	$('section').on('click', '.btn_right',function () {
 		btn_right();
 	});
 	
 	//图片自动轮播
-	timer = setInterval(btn_right, 4000);
+	timer = setInterval(btn_right, 10000);
 	
 	//去掉了注释
 	//点击上一张的封装函数

@@ -47,23 +47,29 @@ public class SearchServlet extends HttpServlet {
 
     private void SearchSong(HttpServletRequest request, HttpServletResponse response) {
         // TODO Auto-generated method stub
-
+        Map<String, Object> ret = new HashMap<String, Object>();
         List<Song> result= new ArrayList<>();
         response.setCharacterEncoding("UTF-8");
         String key = request.getParameter("key");
         Page<Song> page = new Page<Song>(1, 999);
-        System.out.println(key);
+//        System.out.println(key);
 //        key="%"+key+"%";
 //        page.getSearchProporties().add(new SearchProperty("song_name", key, Operator.EQ));
         page.getSearchProporties().add(new SearchProperty("song_name", "%"+key+"%", Operator.LIKE));
         page.getSearchProporties().add(new SearchProperty("author_name", "%"+key+"%", Operator.LIKEOR));
         page.getSearchProporties().add(new SearchProperty("album_name", "%"+key+"%", Operator.LIKEOR));
         page = songdao.findList(page);
+        if(page.getContent().size() == 0){
+            ret.put("type", "error");
+            ret.put("msg", "该歌曲信息不存在");
+            StringUtil.writrToPage(response, JSONObject.toJSONString(ret));
+            return;
+        }
 //        Song song=page.getContent().get(0);
 //        System.out.println(song.getAuthor_name());
         result = page.getContent();
-        System.out.println(result);
-        Map<String, Object> ret = new HashMap<String, Object>();
+//        System.out.println(result);
+
         ret.put("type", "success");
         ret.put("values",result);
         StringUtil.writrToPage(response, JSONObject.toJSONString(ret));
