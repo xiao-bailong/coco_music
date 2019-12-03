@@ -7,18 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00a0448e-dab4-4db5-a769-e2adfc3e728c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/MvDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/MvlistDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Mv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Mvlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/MvServelet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/MvlistServelet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/js/function.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/js/function.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/Cooldog.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/Cooldog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/function.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/function.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +46,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -67,23 +56,14 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-<<<<<<< HEAD
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\coco_music\coco_music\web\images" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\WEB-INF\views" />
-=======
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
       <recent name="F:\IDEA_ku\coco_music\web" />
       <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
       <recent name="F:\IDEA_ku\coco_music\web\WEB-INF\views" />
->>>>>>> 6842d65af2bda1e4e381a91d79d554dc2f084584
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dao" />
@@ -92,14 +72,9 @@
       <recent name="test" />
       <recent name="filter" />
     </key>
-<<<<<<< HEAD
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\coco_music\coco_music\web\images" />
-=======
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music" />
       <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web" />
->>>>>>> 6842d65af2bda1e4e381a91d79d554dc2f084584
       <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
       <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\WEB-INF\views" />
       <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\WEB-INF" />
@@ -236,16 +211,8 @@
       <workItem from="1575167379772" duration="9105000" />
       <workItem from="1575206625611" duration="12412000" />
       <workItem from="1575269667298" duration="3169000" />
-<<<<<<< HEAD
-      <workItem from="1575274177802" duration="1210000" />
-      <workItem from="1575278262230" duration="14033000" />
-      <workItem from="1575294396173" duration="6337000" />
-      <workItem from="1575331265877" duration="5632000" />
-      <workItem from="1575337669600" duration="8045000" />
-      <workItem from="1575373211039" duration="1489000" />
-=======
-      <workItem from="1575274177802" duration="30692000" />
->>>>>>> 6842d65af2bda1e4e381a91d79d554dc2f084584
+      <workItem from="1575274177802" duration="32441000" />
+      <workItem from="1575377351422" duration="965000" />
     </task>
     <servers />
   </component>
@@ -268,6 +235,21 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/main.js</url>
+          <line>127</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/main.js</url>
+          <line>97</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/main.js</url>
+          <line>182</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/servlet/SonglikeServelet.java</url>
           <line>95</line>
