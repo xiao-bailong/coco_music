@@ -859,6 +859,7 @@ function getMvUrl(id) {
         success:function (res) {
             history.replaceState({text:$('section').html()}, '');
             $('section').html(res);
+            // 原生
             $.ajax({
                 url:'http://localhost:3000/mv/detail?mvid='+id,
                 type:'get',
@@ -895,6 +896,23 @@ function getMvUrl(id) {
                     history.replaceState({text:$('section').html()}, '');
                 }
             });
+            // $.ajax({
+            //     url:'MvServelet?method=GetMvData',
+            //     type:'post',
+            //     dataType:'json',
+            //     data: {id: id},
+            //     success:function (data) {
+            //         console.log(data)
+            //         url=data.values[0].mv_url;
+            //         audio.pause();
+            //
+            //         $('video').attr('src',url);
+            //
+            //         $('.loading').fadeOut();
+            //         history.pushState({}, '', '?mvid='+id);
+            //         history.replaceState({text:$('section').html()}, '');
+            //     }
+            // });
         }
     })
 }
@@ -1088,16 +1106,33 @@ function getBanner() {
     //         $('.find .main .recommend .recommend-song').html(str);
     //     }
     // });
+    //原生
+    // $.ajax({        //获取推荐mv
+    //     url:'http://localhost:3000/personalized/mv',
+    //     type:'get',
+    //     success:function (res) {
+    //         var str='';
+    //         for (let i=0;i<res.result.length;i++){
+    //             str+='<div data-id='+res.result[i].id+'>' +
+    //                 '<img src='+res.result[i].picUrl+'>' +
+    //                 '<span>'+res.result[i].name+'</span>' +
+    //                 '<span>'+res.result[i].artistName+'</span>' +
+    //                 '</div>'
+    //         }
+    //         $('.find .main .recommend .recommend-mv').html(str);
+    //     }
+    // });
     $.ajax({        //获取推荐mv
-        url:'http://localhost:3000/personalized/mv',
-        type:'get',
+        url:'MvlistServelet?method=GetMvListData',
+        type:'post',
+        dataType:'json',
         success:function (res) {
             var str='';
-            for (let i=0;i<res.result.length;i++){
-                str+='<div data-id='+res.result[i].id+'>' +
-                    '<img src='+res.result[i].picUrl+'>' +
-                    '<span>'+res.result[i].name+'</span>' +
-                    '<span>'+res.result[i].artistName+'</span>' +
+            for (let i=0;i<res.values.length;i++){
+                str+='<div data-id='+res.values[i].mv_id+'>' +
+                    '<img src='+res.values[i].picurl+'>' +
+                    '<span>'+res.values[i].mv_name+'</span>' +
+                    '<span>'+res.values[i].author_name+'</span>' +
                     '</div>'
             }
             $('.find .main .recommend .recommend-mv').html(str);

@@ -56,6 +56,24 @@
         <url-pattern>/ListsongServelet</url-pattern>
     </servlet-mapping>
     <servlet>
+        <description>Mv推荐控制类</description>
+        <servlet-name>MvServelet</servlet-name>
+        <servlet-class>servlet.MvServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MvServelet</servlet-name>
+        <url-pattern>/MvServelet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description>Mv查询控制类</description>
+        <servlet-name>MvlistServelet</servlet-name>
+        <servlet-class>servlet.MvlistServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MvlistServelet</servlet-name>
+        <url-pattern>/MvlistServelet</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <description>歌单控制类</description>
         <servlet-name>SonglistServelet</servlet-name>
         <servlet-class>servlet.SonglistServelet</servlet-class>

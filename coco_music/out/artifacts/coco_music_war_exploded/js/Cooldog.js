@@ -4,7 +4,7 @@ $(function () {
 	$('section').on('mouseover','.Cooldog_content'/* 改了这 */,function () {
 		clearInterval(timer);//停止图片循环
 	}).on('mouseleave','.Cooldog_container',function () {
-		timer = setInterval(btn_right, 4000);//设置图片循环
+		timer = setInterval(btn_right, 10000);//设置图片循环
 	});
 
 	

@@ -7,28 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00a0448e-dab4-4db5-a769-e2adfc3e728c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/RecommendDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/SonglistDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/SonglistsongDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/ListsongServelet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/RecommendServelet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/SonglistServelet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/MvDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/MvlistDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Mv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Mvlist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlet/MvServelet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlet/MvlistServelet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/classes/entity/Recommend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/classes/entity/Recommend.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/classes/entity/Songlist_song.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/classes/entity/Songlist_song.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/css/other.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/css/other.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/js/function.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/js/function.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/coco_music_war_exploded/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/coco_music/entity/Recommend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/coco_music/entity/Recommend.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/coco_music/entity/Songlist_song.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/coco_music/entity/Songlist_song.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Recommend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Recommend.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Songlist_song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Songlist_song.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/other.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/other.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/Cooldog.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/Cooldog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/js/function.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/function.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/recommend.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/recommend.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -232,7 +222,7 @@
       <workItem from="1575167379772" duration="9105000" />
       <workItem from="1575206625611" duration="12412000" />
       <workItem from="1575269667298" duration="3169000" />
-      <workItem from="1575274177802" duration="21686000" />
+      <workItem from="1575274177802" duration="30692000" />
     </task>
     <servers />
   </component>
@@ -284,6 +274,11 @@
           <url>file://$PROJECT_DIR$/src/servlet/RecommendServelet.java</url>
           <line>99</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/servlet/MvlistServelet.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
