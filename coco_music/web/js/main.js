@@ -524,11 +524,42 @@
 	//         $('.register-pop button').attr('class','').attr('disabled','');
 	//     }
 	// });
+
     $('.set-pop>#quit').click(function () {
+        $('.nav .login>span:nth-child(1) img').attr('src','images/user.png');
         $('.nav .login>span:nth-child(1) span').text("未登录");
         $('.set-pop').slideUp();//关不掉
     });
-    //点击未登录，弹出登录框
+    $('.perinfor-pop>#quit1').click(function () {
+        $('.nav .login>span:nth-child(1) img').attr('src','images/user.png');
+        $('.nav .login>span:nth-child(1) span').text("未登录");
+        $('.perinfor-pop').animate({width: 'toggle'});
+    });
+    $('.set-pop>#modify').click(function () {
+        // $('.infor-pop').stop().slideToggle();
+        $('.infor-pop').stop().animate({width: 'toggle'});
+    });
+    $('.infor-pop .close').click(function () {
+        $('.infor-pop').animate({width: 'toggle'});
+    });
+    // 测试
+    /*$("#slidewidth button").click(function(){
+        $(this).next().animate({width: 'toggle'});
+    });
+    $("#slideleft button").click(function(){
+        var $lefty = $(this).next();
+        $lefty.animate({
+            left:parseInt($lefty.css('left'),10)==0 ? -$lefty.outerWidth() : 0
+        });
+    });
+    $("#slidemarginleft button").click(function(){
+        var $marginlefty = $(this).next();
+        $marginlefty.animate({
+            marginLeft:parseInt($marginlefty.css('marginLeft'),10)==0 ? $marginlefty.outerWidth() : 0
+        });
+    });*/
+
+    //点击未登录，弹出登录框(已登录则弹设置窗）
     $('.nav .user .login>span:nth-child(1)').click(function () {
         if($('.nav .login>span:nth-child(1) span').text()=='未登录'){
             $('.login-pop').stop().slideToggle();
@@ -536,6 +567,11 @@
         else{
             $('.set-pop').stop().slideToggle();
         }
+    });
+    // 点设置弹出个人信息弹框
+    $('.nav .user .login>span:nth-child(3)').click(function () {
+        // $('.perinfor-pop').stop().slideToggle();
+        $('.perinfor-pop').stop().animate({width: 'toggle'});
     });
     //关闭个人设置框
     $('.set-pop .close').click(function () {
@@ -653,9 +689,14 @@
                             $('.login-pop .prompt').show();
                         }else if("success" == data.type){
                             alert(data.msg);
-                            // window.location.href = "index.html";
-                            $('.nav .login>span:nth-child(1) img').attr('src','images/user.png');
+                            /*$('.nav .login>span:nth-child(1) img').attr('src','images/user.png');
                             $('.nav .login>span:nth-child(1) span').text(data.name);
+                            $('.perinfor-pop .fill>span:nth-child(1) img').attr('src','images/user.png');
+                            $('.perinfor-pop .fill>span:nth-child(1) span').text(data.name);*/
+                            $('.nav .login>span:nth-child(1) img').attr('src',data.head);
+                            $('.nav .login>span:nth-child(1) span').text(data.name);
+                            $('.perinfor-pop .fill>span:nth-child(1) img').attr('src',data.head);
+                            $('.perinfor-pop .fill>span:nth-child(1) span').text(data.name);
                             $('.login-pop').slideUp();
                         }
                         // else{

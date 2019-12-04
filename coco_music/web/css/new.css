@@ -1,0 +1,113 @@
+.perinfor-pop{
+    width: 300px;
+    height: 663px;
+    position: fixed;
+    bottom: 63px;
+    right: 0px;
+    background-color: #FAFAFC;
+    z-index: 399;
+    box-shadow: 0 0 7px #888888;
+    display: none;
+}
+.perinfor-pop>.fill{
+    width: 100%;
+    height: 200px;
+    top: 30px;
+    position: absolute;
+}
+.perinfor-pop>.fill>div{
+    width: 270px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #F4F4F5;
+    position: absolute;
+    left: 20px;
+}
+.perinfor-pop>.fill>div span:nth-child(1){
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+    line-height: 40px;
+    text-align: center;
+}
+.perinfor-pop>.fill>div span:nth-child(2){
+    /*width: 308px;*/
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 40px;
+}
+.perinfor-pop>.fill>div span:nth-child(2) input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    font-size: 17px;
+}
+/*.infor-pop .username{
+    top: 50px;
+}
+.infor-pop .zhanghao{
+    top: 90px;
+}
+.infor-pop .pass{
+    top: 130px;
+}
+.infor-pop .newpass{
+    top: 170px;
+}
+.infor-pop .newpass2{
+    top: 210px;
+}*/
+.perinfor-pop>#modifyinfor{
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    bottom: 130px;
+    left: 200px;
+    /*border: none;*/
+    border:1px solid #000;
+    color: #000000;
+    font-size: 10px;
+    background-color:#FFFFFF;
+}
+.perinfor-pop>#modifypass{
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    bottom: 80px;
+    left: 200px;
+    /*border: none;*/
+    border:1px solid #000;
+    color: #000000;
+    font-size: 10px;
+    background-color:#FFFFFF;
+}
+.perinfor-pop>#quit1{
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    bottom: 30px;
+    left: 200px;
+    /*border: none;*/
+    border:1px solid #000;
+    color: #000000;
+    font-size: 10px;
+    background-color:#FFFFFF;
+}
+.perinfor-pop .fill>span:nth-child(1) span{
+    position: absolute;
+    /*top: 0px;*/
+    /*left: 40px;*/
+    margin-top: 45px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+.perinfor-pop .fill>span:nth-child(1) img{
+    margin-top: 40px;
+    margin-left: 40px;
+    width: 28px;
+    /* left: 0px;//加的 */
+    border-radius: 50%;
+}

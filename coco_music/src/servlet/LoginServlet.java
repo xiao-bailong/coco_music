@@ -74,7 +74,7 @@ public class LoginServlet extends HttpServlet {
 
 	private void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		Map<String, String> ret = new HashMap<String, String>();
+		Map<String, Object> ret = new HashMap<String, Object>();
 		response.setCharacterEncoding("UTF-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("pass");
@@ -100,6 +100,8 @@ public class LoginServlet extends HttpServlet {
 		ret.put("type", "success");
 		ret.put("msg", "登录成功！");
 		ret.put("name", user.getName());
+		ret.put("head", user.getHead_portrait());
+//		ret.put("user", user);
 		response.getWriter().write(JSONObject.toJSONString(ret));
 //		String hh = JSONObject.toJSONString(ret);
 //		System.out.println(hh);

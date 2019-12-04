@@ -1192,7 +1192,7 @@ function refLogin() {
                 });
             },
             error:function () {
-                $('.nav .login>span:nth-child(1) img').attr('src','./images/def.jpg');
+                $('.nav .login>span:nth-child(1) img').attr('src','./images/user.png');
                 $('.nav .login>span:nth-child(1) span').text('未登录');
             }
         });
