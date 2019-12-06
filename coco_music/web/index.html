@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/index.css">
+<!--    <link rel="stylesheet" href="./other/css/app.css">-->
     <link rel="stylesheet" href="./css/new.css">
     <link rel="stylesheet" href="./css/other.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_758041_cf4may8xj9.css"> <!-- 引入阿里图标库css -->
@@ -224,12 +225,17 @@
                 <img src="images/user.png">
                 <span>用户名</span>
             </span>
+            <form>
+                性别: <input type="text" id="sex"><br>
+                生日: <input type="text" id="birthday"><br>
+                个人描述: <textarea rows="10" cols="30" id="introduction"></textarea>
+            </form>
         </div>
         <hr />
+<!--        <button type="button" class="btn btn-outline-primary">Default button</button>-->
         <button type="button" id="modifyinfor">修改个人信息</button>
         <button type="button" id="modifypass">修改密码</button>
         <button type="button" id="quit1">退出登录</button>
-
     </div>
     <!--登录框-->
     <div class="login-pop">
@@ -463,7 +469,7 @@
 <!--        &lt;!&ndash;<span>积分+2</span>&ndash;&gt;-->
 <!--    &lt;!&ndash;</div>&ndash;&gt;-->
 
-
+    <script src="./js/new.js"></script>
     <script src="./js/function.js"></script>
     <script src="./js/play.js"></script>
     <script src="./js/main.js"></script>

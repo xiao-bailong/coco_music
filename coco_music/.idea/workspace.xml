@@ -21,6 +21,7 @@
         <option value="Jsp File" />
         <option value="Class" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -47,7 +48,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/headimg" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/other" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -62,12 +63,11 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\coco_music\coco_music\web\headimg" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\WEB-INF\views" />
+      <recent name="F:\IDEA_ku\coco_music\web" />
+      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
+      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dao" />
@@ -76,11 +76,12 @@
       <recent name="test" />
       <recent name="filter" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
-      <recent name="F:\IDEA_ku\coco_music\web" />
-      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
-      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF\views" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\coco_music\coco_music\web\other" />
+      <recent name="F:\coco_music\coco_music\web\css" />
+      <recent name="F:\coco_music\coco_music\web\other\css" />
+      <recent name="F:\coco_music\coco_music\web\headimg" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -219,7 +220,11 @@
       <workItem from="1575425875735" duration="3275000" />
       <workItem from="1575429207593" duration="4160000" />
       <workItem from="1575459764571" duration="8083000" />
-      <workItem from="1575468977055" duration="3944000" />
+      <workItem from="1575468977055" duration="4345000" />
+      <workItem from="1575529043380" duration="5685000" />
+      <workItem from="1575535100149" duration="592000" />
+      <workItem from="1575555199733" duration="4931000" />
+      <workItem from="1575609713765" duration="13171000" />
     </task>
     <servers />
   </component>
@@ -244,8 +249,29 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/main.js</url>
-          <line>97</line>
-          <option name="timeStamp" value="4" />
+          <line>363</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/function.js</url>
+          <line>342</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/main.js</url>
+          <line>101</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/function.js</url>
+          <line>674</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/main.js</url>
+          <line>296</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/servlet/SonglikeServelet.java</url>

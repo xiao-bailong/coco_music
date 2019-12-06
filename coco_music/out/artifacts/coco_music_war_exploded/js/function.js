@@ -356,6 +356,8 @@ function search(val) {
             getCd(val);
         } else if (i==3){
             getMv(val);
+        } else if (i==4){
+            getSongList(val);
         }
     }else {
         getSong(val);
@@ -640,7 +642,7 @@ function mvSecondScrollBottomTest() {
 }
 
 //类型切换
-function getSong(val) {
+/*function getSong(val) {
     $('.ajaxload').show();
     $.ajax({
         url:'/search?keywords='+val,
@@ -668,8 +670,70 @@ function getSong(val) {
             $('.search .searchBody').show();
         }
     });
+}*/
+// 修改版的搜索歌
+function getSong(val) {
+    $('.ajaxload').show();
+    $.ajax({
+        url:'SearchServlet?method=SearchSong',
+        type:'post',
+        dataType:'json',
+        data:val,
+        success:function (data) {
+            if(data.type=='error'){
+                alert(data.msg);
+                var str = '';
+                $('.search .searchBody .song ul').html(str);
+            }
+            else {
+                haveLists = data  //播放列表
+                var str = '';
+                for (let i = 0; i < data.values.length; i++) {
+                    str += '<li data-index=' + i + '>' +
+                        '<span>' + num(i+1) + '</span>' +
+                        '<span>' + data.values[i].song_name + '</span>' +
+                        '<span>' + data.values[i].author_name + '</span>' +
+                        '<span>' + data.values[i].album_name + '</span>' +
+                        '</li>';
+                }
+                $('.search .searchBody .song ul').html(str);
+                $('.search .main').hide();
+                $('.search .searchBody').show();
+                $('.sound span:nth-child(4) span').text(haveLists.length);
+            }
+        }
+    });
+    $('.ajaxload').fadeOut();
 }
-
+// 添加的搜索歌单，还未修改
+function getSongList(val) {
+    $('.ajaxload').show();
+    $.ajax({
+        url:'SearchServlet?method=SearchSongList',
+        type:'post',
+        dataType:'json',
+        data:val,
+        success:function (data) {
+            if(data.type=='error'){
+                alert(data.msg);
+                var str = '';
+                $('.search .searchBody .songList ul').html(str);
+            }
+            else {
+                var str = '';
+                for (let i = 0; i < data.values.length; i++) {
+                    str += '<li data-index=' + i + '>' +
+                        '<img src='+data.values[i].picurl+'>' +
+                        '<span>' + data.values[i].songlist_name + '</span>' +
+                        '<span>' + data.values[i].tags + '</span>' +
+                        '</li>';
+                }
+                $('.search .searchBody .songList ul').html(str);
+            }
+        }
+    });
+    $('.ajaxload').fadeOut();
+}
 
 function getAuthor(val) {
     $('.ajaxload').show();

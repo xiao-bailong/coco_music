@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSONObject;
 import dao.SongDao;
+import dao.SonglistDao;
 import entity.Song;
+import entity.Songlist;
 import page.Operator;
 import page.Page;
 import page.SearchProperty;
@@ -22,7 +24,7 @@ import util.StringUtil;
 public class SearchServlet extends HttpServlet {
     private static final long serialVersionUID = 5870852067427524781L;
     private  SongDao songdao = new SongDao();
-
+    private SonglistDao songlistDao= new SonglistDao();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -43,8 +45,12 @@ public class SearchServlet extends HttpServlet {
             SearchSong(request,response);
             return;
         }
+        if("SearchSongList".equals(method)){
+            SearchSongList(request,response);
+            return;
+        }
     }
-
+    //搜索歌曲
     private void SearchSong(HttpServletRequest request, HttpServletResponse response) {
         // TODO Auto-generated method stub
         Map<String, Object> ret = new HashMap<String, Object>();
@@ -52,9 +58,6 @@ public class SearchServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         String key = request.getParameter("key");
         Page<Song> page = new Page<Song>(1, 999);
-//        System.out.println(key);
-//        key="%"+key+"%";
-//        page.getSearchProporties().add(new SearchProperty("song_name", key, Operator.EQ));
         page.getSearchProporties().add(new SearchProperty("song_name", "%"+key+"%", Operator.LIKE));
         page.getSearchProporties().add(new SearchProperty("author_name", "%"+key+"%", Operator.LIKEOR));
         page.getSearchProporties().add(new SearchProperty("album_name", "%"+key+"%", Operator.LIKEOR));
@@ -65,11 +68,28 @@ public class SearchServlet extends HttpServlet {
             StringUtil.writrToPage(response, JSONObject.toJSONString(ret));
             return;
         }
-//        Song song=page.getContent().get(0);
-//        System.out.println(song.getAuthor_name());
         result = page.getContent();
-//        System.out.println(result);
-
+        ret.put("type", "success");
+        ret.put("values",result);
+        StringUtil.writrToPage(response, JSONObject.toJSONString(ret));
+    }
+//    搜索歌单
+    private void SearchSongList(HttpServletRequest request, HttpServletResponse response) {
+        // TODO Auto-generated method stub
+        Map<String, Object> ret = new HashMap<String, Object>();
+        List<Songlist> result= new ArrayList<>();
+        response.setCharacterEncoding("UTF-8");
+        String key = request.getParameter("key");
+        Page<Songlist> page = new Page<Songlist>(1, 999);
+        page.getSearchProporties().add(new SearchProperty("songlist_name", "%"+key+"%", Operator.LIKE));
+        page = songlistDao.findList(page);
+        if(page.getContent().size() == 0){
+            ret.put("type", "error");
+            ret.put("msg", "该歌单信息不存在");
+            StringUtil.writrToPage(response, JSONObject.toJSONString(ret));
+            return;
+        }
+        result = page.getContent();
         ret.put("type", "success");
         ret.put("values",result);
         StringUtil.writrToPage(response, JSONObject.toJSONString(ret));

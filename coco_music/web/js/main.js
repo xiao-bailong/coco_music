@@ -108,45 +108,15 @@
                     success:function (html) {
                         history.replaceState({text:$('section').html()}, '');
                         $('section').html(html);
-                        $('section').on('click','.search .input span',function () {
+                        /*$('section').on('click','.search .input span',function () {
                             var $key=$('.search .input input').val();
                             console.log($key);
                             var datas={
                                 key:$key
                             };
-                            $.ajax({
-                                url:'SearchServlet?method=SearchSong',
-                                type:'post',
-                                dataType:'json',
-                                data:datas,
-                                success:function (data) {
-                                    if(data.type=='error'){
-                                        alert(data.msg);
-                                    }
-                                    else {
-                                        haveLists = data  //播放列表
-                                        // console.log(data);
-                                        // haveLists=data.playlist.tracks;
-                                        var str = '';
-                                        for (let i = 0; i < data.values.length; i++) {
-                                            // lists.push(data[i]);
-                                            str += '<li data-index=' + i + '>' +
-                                                '<span>' + data.values[i].song_name + '</span>' +
-                                                '<span>' + data.values[i].author_name + '</span>' +
-                                                '<span>' + data.values[i].album_name + '</span>' +
-                                                '</li>';
-                                        }
-                                        // $('.search .searchBody .song ul').append(str);
-                                        $('.search .searchBody .song ul').html(str);
-                                        $('.search .main').hide();
-                                        $('.search .searchBody').show();
-                                        $('.sound span:nth-child(4) span').text(haveLists.length);
-                                        hist(type);
-                                    }
-                                }
-                            });
-                        });
-
+                            getSong(datas);
+                        });*/
+                        hist(type);
                     }
                 });
             }else if ($(this).attr('data-index')==2){
@@ -204,32 +174,32 @@
                         history.replaceState({text:$('section').html()}, '');
                         $('section').html(html);
                         $.ajax({
-                                    url:'SonglikeServelet?method=GetSonglikeListData',
-                                    type:'post',
-                                    dataType:'json',
-                                    success:function (data) {
-                                        haveLists=data
-                                        console.log(data);
-                                        // haveLists=data.playlist.tracks;
-                                        $('.author-cd .top>p').text('歌单');
-                                        $('.author-cd .top>div img').attr('src',data.values[0].picurl);
-                                        $('.author-cd .top>div p:nth-child(2)').text('我喜欢的音乐');
-                                        // $('.author-cd .top>div p:nth-child(3)').text(fmtDate(data.playlist.createTime)+' 创建');
-                                        $('.author-cd .top>div p:nth-child(4)').text('');
-                                        var str='';
-                                        for (let i=0;i<data.values.length;i++){
-                                            str+='<li>' +
-                                                '<span>'+num(i+1)+'</span>' +
-                                                '<span>'+data.values[i].song_name+'</span>' +
-                                                '<span>'+data.values[i].album_name+'</span>' +
-                                                '<span>热度：'+data.values[i].pop+'</span>' +
-                                                '</li>'
-                                        }
-                                        $('.author-cd .bottom>ul').html(str);
-                                        $('.loading').fadeOut();
-                                        hist(type);
-                                    }
-                                });
+                            url:'SonglikeServelet?method=GetSonglikeListData',
+                            type:'post',
+                            dataType:'json',
+                            success:function (data) {
+                                haveLists=data
+                                console.log(data);
+                                // haveLists=data.playlist.tracks;
+                                $('.author-cd .top>p').text('歌单');
+                                $('.author-cd .top>div img').attr('src',data.values[0].picurl);
+                                $('.author-cd .top>div p:nth-child(2)').text('我喜欢的音乐');
+                                // $('.author-cd .top>div p:nth-child(3)').text(fmtDate(data.playlist.createTime)+' 创建');
+                                $('.author-cd .top>div p:nth-child(4)').text('');
+                                var str='';
+                                for (let i=0;i<data.values.length;i++){
+                                    str+='<li>' +
+                                        '<span>'+num(i+1)+'</span>' +
+                                        '<span>'+data.values[i].song_name+'</span>' +
+                                        '<span>'+data.values[i].album_name+'</span>' +
+                                        '<span>热度：'+data.values[i].pop+'</span>' +
+                                        '</li>'
+                                }
+                                $('.author-cd .bottom>ul').html(str);
+                                $('.loading').fadeOut();
+                                hist(type);
+                            }
+                        });
                         //new
                         // history.replaceState({text:$('section').html()}, '');
                         //     $('section').html(html);
@@ -323,6 +293,22 @@
     //     musicText=text;
     //     search(text);
     // });
+    $('section').on('click','.search .input span',function () {
+        var dataIndex=$('.search .searchBody>ul .active').attr('data-index');
+        var $key=$('.search .input input').val();
+        var datas={
+            key:$key
+        };
+        console.log(dataIndex);
+        if(dataIndex==4){
+            // $('.search .searchBody>div').hide();
+            // $('.search .searchBody>div:eq('+0+')').addClass('active').siblings().removeClass('active');
+            // $('.search .searchBody>div:eq('+4+')').show();
+            getSongList(datas);
+        }else{
+            getSong(datas);
+        }
+    });
     // $('section').keydown('.search .input span',function (e) {
     //     if (e.which == "13") {
     //         var text=$('.search .input input').val();
@@ -380,14 +366,22 @@
         var dataIndex=$(this).attr('data-index');
         $('.search .searchBody>div').hide();
         $('.search .searchBody>div:eq('+dataIndex+')').show();
+        var $key=$('.search .input input').val();
+        var datas={
+            key:$key
+        };
         if (dataIndex==0){
-            getSong(musicText);
-        } else if (dataIndex==1) {
-            getAuthor(musicText);
+            // getSong(musicText);
+            getSong(datas);
+        }else if (dataIndex==1) {
+            // getAuthor(musicText);
         }else if (dataIndex==2) {
-            getCd(musicText);
+            // getCd(musicText);
         }else if (dataIndex==3) {
-            getMv(musicText);
+            // getMv(musicText);
+        } else if (dataIndex==4) {
+            // getSongList(musicText);
+            getSongList(datas);
         }
     });
 
@@ -525,16 +519,12 @@
 	//     }
 	// });
 
-    $('.set-pop>#quit').click(function () {
+    /*$('.set-pop>#quit').click(function () {
         $('.nav .login>span:nth-child(1) img').attr('src','images/user.png');
         $('.nav .login>span:nth-child(1) span').text("未登录");
         $('.set-pop').slideUp();//关不掉
-    });
-    $('.perinfor-pop>#quit1').click(function () {
-        $('.nav .login>span:nth-child(1) img').attr('src','images/user.png');
-        $('.nav .login>span:nth-child(1) span').text("未登录");
-        $('.perinfor-pop').animate({width: 'toggle'});
-    });
+    });*/
+
     $('.set-pop>#modify').click(function () {
         // $('.infor-pop').stop().slideToggle();
         $('.infor-pop').stop().animate({width: 'toggle'});
@@ -564,19 +554,15 @@
         if($('.nav .login>span:nth-child(1) span').text()=='未登录'){
             $('.login-pop').stop().slideToggle();
         }
-        else{
+        /*else{
             $('.set-pop').stop().slideToggle();
-        }
+        }*/
     });
-    // 点设置弹出个人信息弹框
-    $('.nav .user .login>span:nth-child(3)').click(function () {
-        // $('.perinfor-pop').stop().slideToggle();
-        $('.perinfor-pop').stop().animate({width: 'toggle'});
-    });
+
     //关闭个人设置框
-    $('.set-pop .close').click(function () {
+    /*$('.set-pop .close').click(function () {
         $('.set-pop').slideUp();
-    });
+    });*/
     //关闭登录框
     $('.login-pop .close').click(function () {
         $('.login-pop').slideUp();
