@@ -301,9 +301,6 @@
         };
         console.log(dataIndex);
         if(dataIndex==4){
-            // $('.search .searchBody>div').hide();
-            // $('.search .searchBody>div:eq('+0+')').addClass('active').siblings().removeClass('active');
-            // $('.search .searchBody>div:eq('+4+')').show();
             getSongList(datas);
         }else{
             getSong(datas);
@@ -354,8 +351,10 @@
 
     //搜索歌曲列表点击
     $('section').on('click','.search .searchBody .song li',function () {
-        musicIndex=$(this).attr('data-index');
         lists=haveLists;
+        musicIndex=$(this).attr('data-index');
+        $('.search .searchBody .song li span').css('color','');
+        $('.search .searchBody .song li:eq('+musicIndex+') span').css('color','#C62E2E');
         musicInit();
         audio.play();
     });
@@ -525,13 +524,14 @@
         $('.set-pop').slideUp();//关不掉
     });*/
 
-    $('.set-pop>#modify').click(function () {
+    /*$('.set-pop>#modify').click(function () {
         // $('.infor-pop').stop().slideToggle();
         $('.infor-pop').stop().animate({width: 'toggle'});
     });
     $('.infor-pop .close').click(function () {
         $('.infor-pop').animate({width: 'toggle'});
-    });
+    });*/
+
     // 测试
     /*$("#slidewidth button").click(function(){
         $(this).next().animate({width: 'toggle'});
@@ -674,20 +674,23 @@
                             $('.login-pop .prompt>span').text(data.msg);
                             $('.login-pop .prompt').show();
                         }else if("success" == data.type){
+                            console.log(data);
+                            /*if(data.user.sex==undefined) {
+                                console.log(data.user.sex);
+                                console.log('未定义');
+                            }
+                            console.log(data.user.birthday);*/
                             alert(data.msg);
-                            /*$('.nav .login>span:nth-child(1) img').attr('src','images/user.png');
-                            $('.nav .login>span:nth-child(1) span').text(data.name);
-                            $('.perinfor-pop .fill>span:nth-child(1) img').attr('src','images/user.png');
-                            $('.perinfor-pop .fill>span:nth-child(1) span').text(data.name);*/
-                            $('.nav .login>span:nth-child(1) img').attr('src',data.head);
-                            $('.nav .login>span:nth-child(1) span').text(data.name);
-                            $('.perinfor-pop .fill>span:nth-child(1) img').attr('src',data.head);
-                            $('.perinfor-pop .fill>span:nth-child(1) span').text(data.name);
+                            islogin=true;
+                            $('.nav .login>span:nth-child(1) img').attr('src',data.user.head_portrait);
+                            $('.nav .login>span:nth-child(1) span').text(data.user.name);
+                            /*$('.perinfor-pop .fill>span:nth-child(1) img').attr('src',data.user.head_portrait);
+                            $('.perinfor-pop .fill>span:nth-child(1) input').attr('value',data.user.name);
+                            $('.perinfor-pop .fill>form #introduction').text(data.user.introduction);*/
+                            currentUser=data.user.user_id;
+                            console.log(currentUser);
                             $('.login-pop').slideUp();
                         }
-                        // else{
-                        //     alert(data.msg);
-                        // }
                     },
                     error:function(){
                         alert('false');

@@ -1,30 +1,44 @@
 package entity;
 
 import annotation.Column;
-
+import annotation.JsonFormat;
 import java.sql.Date;
 
 public class User {
-//	private int id;
+	private int id;
 	@Column(name="name")
 	private String name;
 	@Column(name="user_id")
 	private String user_id;
 	@Column(name="password")
 	private String password;
-
-
-
 	private String head_portrait;
 	private String sex;
 	private String introduction;
+//	@JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
 	private Date birthday;
-//	public int getId() {
-//		return id;
-//	}
-//	public void setId(int id) {
-//		this.id = id;
-//	}
+	/*private String birthday1;
+	private java.util.Date birthday2;*/
+
+
+	/*public String getBirthday1() {
+		return birthday1;
+	}
+	public void setBirthday1(String birthday1) {
+		this.birthday1 = birthday1;
+	}
+	public java.util.Date getBirthday2() {
+		return birthday2;
+	}
+	public void setBirthday2(java.util.Date birthday2) {
+		this.birthday2 = birthday2;
+	}*/
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

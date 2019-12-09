@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoginServlet extends HttpServlet {
-
 	/**
 	 *
 	 */
@@ -99,9 +99,9 @@ public class LoginServlet extends HttpServlet {
 		}
 		ret.put("type", "success");
 		ret.put("msg", "登录成功！");
-		ret.put("name", user.getName());
-		ret.put("head", user.getHead_portrait());
-//		ret.put("user", user);
+		/*ret.put("name", user.getName());
+		ret.put("head", user.getHead_portrait());*/
+		ret.put("user", user);
 		response.getWriter().write(JSONObject.toJSONString(ret));
 //		String hh = JSONObject.toJSONString(ret);
 //		System.out.println(hh);
@@ -111,12 +111,14 @@ public class LoginServlet extends HttpServlet {
 	private void resister(HttpServletRequest request,
 						  HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
+		java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+		String moren = "2000-01-01";
 		Map<String, String> ret = new HashMap<String, String>();
 		response.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String user_id = request.getParameter("user_id");
-		System.out.println(name+"   "+user_id+"   "+password);
+//		System.out.println(name+"   "+user_id+"   "+password);
 		if(isExistUserName(name)){
 			ret.put("type", "error");
 			ret.put("msg", "该用户名已经存在，请重新输入！");
@@ -132,7 +134,19 @@ public class LoginServlet extends HttpServlet {
 		User user = new User();
 		user.setName(name);
 		user.setPassword(password);
+		user.setHead_portrait("images/def.jpg");
 		user.setUser_id(user_id);
+		user.setSex("保密");
+		user.setIntroduction("未填写");
+//		user.setBirthday1(moren);
+		try {
+			java.sql.Date sDate= new java.sql.Date((sdf.parse(moren)).getTime());
+			user.setBirthday(sDate);
+			/*java.util.Date uDate= new java.util.Date((sdf.parse(moren)).getTime());
+			user.setBirthday2(uDate);*/
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		if(!userDao.add(user)){
 			ret.put("type", "error");
 			ret.put("msg", "注册失败，请联系管理员！");

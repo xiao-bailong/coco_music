@@ -19,9 +19,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -63,11 +64,15 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
-      <recent name="F:\IDEA_ku\coco_music\web" />
-      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
-      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF\views" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="annotation" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\coco_music\coco_music\web\other" />
+      <recent name="F:\coco_music\coco_music\web\css" />
+      <recent name="F:\coco_music\coco_music\web\other\css" />
+      <recent name="F:\coco_music\coco_music\web\headimg" />
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dao" />
@@ -76,12 +81,11 @@
       <recent name="test" />
       <recent name="filter" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\coco_music\coco_music\web\other" />
-      <recent name="F:\coco_music\coco_music\web\css" />
-      <recent name="F:\coco_music\coco_music\web\other\css" />
-      <recent name="F:\coco_music\coco_music\web\headimg" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
+      <recent name="F:\IDEA_ku\coco_music\web" />
+      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
+      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -224,7 +228,10 @@
       <workItem from="1575529043380" duration="5685000" />
       <workItem from="1575535100149" duration="592000" />
       <workItem from="1575555199733" duration="4931000" />
-      <workItem from="1575609713765" duration="13171000" />
+      <workItem from="1575609713765" duration="18109000" />
+      <workItem from="1575717914484" duration="5354000" />
+      <workItem from="1575789943913" duration="25992000" />
+      <workItem from="1575873754960" duration="11267000" />
     </task>
     <servers />
   </component>
@@ -249,7 +256,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/main.js</url>
-          <line>363</line>
+          <line>362</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -269,9 +276,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/main.js</url>
-          <line>296</line>
+          <line>776</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="23" />
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/servlet/SonglikeServelet.java</url>
@@ -288,23 +295,12 @@
           <line>99</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/servlet/MvlistServelet.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="page.getContent().get(0)" language="JAVA" />
-        <watch expression="page1" language="JAVA" />
-        <watch expression="page" language="JAVA" />
-        <watch expression="page1" language="JAVA" />
-        <watch expression="result" language="JAVA" />
-        <watch expression="ret" language="JAVA" />
-        <watch expression="id" language="JAVA" />
-        <watch expression="page1.getContent().get(0)" language="JAVA" />
+        <watch expression="user.getPassword()" language="JAVA" />
+        <watch expression="page.getTotal()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

@@ -158,15 +158,15 @@
     <!--网页加载进度-->
     <div class="load"></div>
 <!--    个人设置弹窗-->
-    <div class="set-pop">
+    <!--<div class="set-pop">
         <span class="close">
             <i class="iconfont icon-x"></i>
         </span>
         <button type="submit" id="modify">修改个人信息</button>
         <button type="submit" id="quit">退出登陆</button>
-    </div>
+    </div>-->
     <!--修改个人信息弹窗-->
-    <div class="infor-pop">
+    <!--<div class="infor-pop">
         <span class="close">
             <i class="iconfont icon-x"></i>
         </span>
@@ -217,25 +217,82 @@
             </div>
         </div>
         <button type="submit" id="modifyIn">确认修改信息</button>
-    </div>
+    </div>-->
 <!--    个人信息弹窗-->
     <div class="perinfor-pop">
         <div class="fill">
             <span>
                 <img src="images/user.png">
-                <span>用户名</span>
+<!--                <span>用户名</span>-->
+                <input type="text" id="name" value="用户名" disabled>
             </span>
             <form>
-                性别: <input type="text" id="sex"><br>
-                生日: <input type="text" id="birthday"><br>
-                个人描述: <textarea rows="10" cols="30" id="introduction"></textarea>
+<!--                性别: <input type="text" id="sex" value="未填写"><br>-->
+                <div id="r1">
+                    <label>性别：</label>
+                    <select id="sex" name="sex" disabled>
+                        <option value ="1">保密</option>
+                        <option value ="2">男</option>
+                        <option value ="3">女</option>
+                    </select>
+                </div>
+                <div id="r2">
+                    <label>生日：</label>
+                    <input type="date" id="birthday" name="birthday" disabled>
+                </div>
+                <div id="r3">
+                    <label>介绍：</label>
+                    <textarea rows="10" cols="20" id="introduction" name="introduction" disabled></textarea>
+<!--                    disabled-->
+                </div>
+
             </form>
         </div>
-        <hr />
+
 <!--        <button type="button" class="btn btn-outline-primary">Default button</button>-->
         <button type="button" id="modifyinfor">修改个人信息</button>
         <button type="button" id="modifypass">修改密码</button>
         <button type="button" id="quit1">退出登录</button>
+        <button type="submit" id="verify">确认</button>
+        <button type="button" id="cancel">取消</button>
+    </div>
+<!--    改密码弹窗-->
+    <div class="changepwd-pop">
+        <span class="close">
+                <i class="iconfont icon-x"></i>
+        </span>
+        <div class="fill">
+            <span class="prompt">
+                <i class="iconfont icon-caution"></i>
+                <span>密码错误</span>
+            </span>
+            <div class="pass">
+                <span>
+                    <i class="iconfont icon-mima"></i>
+                </span>
+                <span>
+                    <input type="password" placeholder="请输入原密码">
+                </span>
+            </div>
+            <div class="newpass">
+                <span>
+                    <i class="iconfont icon-mima"></i>
+                </span>
+                <span>
+                    <input type="password" placeholder="请输入新密码">
+                </span>
+            </div>
+            <div class="newpass2">
+                <span>
+                    <i class="iconfont icon-mima"></i>
+                </span>
+                <span>
+                    <input type="password" placeholder="请重复新密码">
+                </span>
+            </div>
+        </div>
+        <button type="submit" id="verify2">确定</button>
+        <button type="button" id="cancel2">取消</button>
     </div>
     <!--登录框-->
     <div class="login-pop">
@@ -265,11 +322,11 @@
             </div>
         </div>
 
-        <div class="user-img">
+        <!--<div class="user-img">
             <img src="images/def.jpg">
             <span>马大晨</span>
             <button type="button">签到</button>
-        </div>
+        </div>-->
         <!--        disabled-->
         <button type="submit" id="button1">登录</button>
         <button type="submit" id="button2">注册</button>

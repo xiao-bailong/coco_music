@@ -661,7 +661,7 @@ main{
     display: none;
  }*/
 /*个人信息弹框*/
-.infor-pop{
+/*.infor-pop{
     width: 300px;
     height: 663px;
     position: fixed;
@@ -718,7 +718,7 @@ main{
     text-align: center;
 }
 .infor-pop>.fill>div span:nth-child(2){
-    /*width: 308px;*/
+    !*width: 308px;*!
     height: 100%;
     position: absolute;
     top: 0;
@@ -760,18 +760,18 @@ main{
 }
 .infor-pop>button.selected{
     background-color: #D83F3F;
-}
+}*/
 /*设置弹框*/
-.set-pop{
+/*.set-pop{
     width: 200px;
     height: 50px;
     position: fixed;
     bottom: 105px;
     left: 0px;
-    /*margin-top: -200px;*/
-    /*margin-left: -200px;*/
+    !*margin-top: -200px;*!
+    !*margin-left: -200px;*!
     background-color: #FAFAFC;
-    /*border: 1px solid red;*/
+    !*border: 1px solid red;*!
     z-index: 99;
     box-shadow: 0 0 7px #888888;
     display: none;
@@ -791,7 +791,7 @@ main{
     overflow: hidden;
 }
 .set-pop>#modify{
-    width: 60px; /*360*/
+    width: 60px; !*360*!
     height: 30px;
     position: absolute;
     top: 10px;
@@ -811,7 +811,7 @@ main{
     color: #ffffff;
     font-size: 5px;
     background-color: #D83F3F;
-}
+}*/
 /*注册框*/
 .register-pop{
     width: 400px;

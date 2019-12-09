@@ -110,6 +110,16 @@
         <url-pattern>/SearchServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <description>个人信息修改控制类</description>
+        <servlet-name>UserInforServlet</servlet-name>
+        <servlet-class>servlet.UserInforServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserInforServlet</servlet-name>
+        <url-pattern>/UserInforServlet</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>DatabaseAccess</servlet-name>

@@ -96,8 +96,34 @@
     font-size: 10px;
     background-color:#FFFFFF;
 }
-.perinfor-pop .fill>span:nth-child(1) span{
+.perinfor-pop>#verify{
+    width: 80px;
+    height: 30px;
     position: absolute;
+    bottom: 170px;
+    left: 50px;
+    border:1px solid #000;
+    color: #000000;
+    font-size: 10px;
+    background-color:#FFFFFF;
+    display: none;
+}
+.perinfor-pop>#cancel{
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    bottom: 170px;
+    left: 200px;
+    border:1px solid #000;
+    color: #000000;
+    font-size: 10px;
+    background-color:#FFFFFF;
+    display: none;
+}
+.perinfor-pop .fill>span:nth-child(1) input{
+    position: absolute;
+    width: 100px;
+    text-align:center;
     /*top: 0px;*/
     /*left: 40px;*/
     margin-top: 45px;
@@ -111,3 +137,153 @@
     /* left: 0px;//加的 */
     border-radius: 50%;
 }
+.perinfor-pop .fill>form {
+    position: absolute;
+    /*top: 0px;*/
+    /*left: 40px;*/
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 15px;
+}
+.perinfor-pop form>div:nth-child(1) label{
+    position: absolute;
+    margin-top: 40px;
+    width: 50px;
+    /*margin-left: 40px;*/
+}
+.perinfor-pop form>div:nth-child(1) select{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 60px;
+}
+.perinfor-pop form>div:nth-child(2) label{
+    position: absolute;
+    margin-top: 80px;
+    width: 50px;
+}
+.perinfor-pop form>div:nth-child(2) input{
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 60px;
+}
+.perinfor-pop form>div:nth-child(3) label{
+    position: absolute;
+    margin-top: 120px;
+    width: 50px;
+}
+.perinfor-pop form>div:nth-child(3) textarea{
+    position: absolute;
+    margin-top: 120px;
+    margin-left: 60px;
+}
+
+/*改密码弹窗*/
+.changepwd-pop{
+    width: 400px;
+    height: 350px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -200px;
+    background-color: #FAFAFC;
+    /*border: 1px solid red;*/
+    z-index: 99;
+    box-shadow: 0 0 7px #888888;
+    display: none;
+}
+.changepwd-pop>.fill{
+    width: 100%;
+    height: 200px;
+    top: 30px;
+    position: absolute;
+}
+.changepwd-pop .close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.changepwd-pop .close i{
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+.changepwd-pop .prompt{
+    width: 100%;
+    text-align: center;
+    color: #DA4546;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 15px;
+    display: none;
+}
+.changepwd-pop>.fill>div{
+    width: 360px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #F4F4F5;
+    position: absolute;
+    left: 20px;
+}
+.changepwd-pop>.fill>div span:nth-child(1){
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+    line-height: 40px;
+    text-align: center;
+}
+.changepwd-pop>.fill>div span:nth-child(2){
+    /*width: 308px;*/
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 40px;
+}
+.changepwd-pop>.fill>div span:nth-child(2) input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    font-size: 17px;
+}
+.changepwd-pop .pass{
+    top: 50px;
+}
+.changepwd-pop .newpass{
+    top: 90px;
+}
+.changepwd-pop .newpass2{
+    top: 130px;
+}
+.changepwd-pop>#verify2{
+    width: 175px; /*360*/
+    height: 40px;
+    position: absolute;
+    top: 250px;
+    left: 20px;
+    border: none;
+    color: #ffffff;
+    font-size: 17px;
+    background-color: #D83F3F;
+}
+.changepwd-pop>#cancel2{
+    width: 175px;
+    height: 40px;
+    position: absolute;
+    top: 250px;
+    left: 205px;
+    border: none;
+    color: #ffffff;
+    font-size: 17px;
+    background-color: #D83F3F;
+}
+.changepwd-pop>button.selected{
+    background-color: #D83F3F;
+}
+

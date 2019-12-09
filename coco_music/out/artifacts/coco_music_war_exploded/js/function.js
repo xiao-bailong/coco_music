@@ -705,7 +705,7 @@ function getSong(val) {
     });
     $('.ajaxload').fadeOut();
 }
-// 添加的搜索歌单，还未修改
+// 添加的搜索歌单
 function getSongList(val) {
     $('.ajaxload').show();
     $.ajax({
@@ -722,8 +722,8 @@ function getSongList(val) {
             else {
                 var str = '';
                 for (let i = 0; i < data.values.length; i++) {
-                    str += '<li data-index=' + i + '>' +
-                        '<img src='+data.values[i].picurl+'>' +
+                    str += '<li data-id=' + data.values[i].songlist_id + '>' +
+                        '<img src='+ data.values[i].picurl+'>' +
                         '<span>' + data.values[i].songlist_name + '</span>' +
                         '<span>' + data.values[i].tags + '</span>' +
                         '</li>';
