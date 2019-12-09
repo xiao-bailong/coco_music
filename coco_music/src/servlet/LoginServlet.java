@@ -40,10 +40,10 @@ public class LoginServlet extends HttpServlet {
 		if(attribute != null){
 			method = attribute.toString();
 		}
-//		if("login".equals(method)){
-//			request.getRequestDispatcher("/index.html").forward(request, response);
-//			return;
-//		}
+		if("login".equals(method)){
+			request.getRequestDispatcher("index.html").forward(request, response);
+			return;
+		}
 //		if("registe".equals(method)){
 //			request.getRequestDispatcher("/WEB-INF/views/registe.jsp").forward(request, response);
 //			return;

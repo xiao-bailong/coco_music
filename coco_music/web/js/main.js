@@ -108,6 +108,22 @@
                     success:function (html) {
                         history.replaceState({text:$('section').html()}, '');
                         $('section').html(html);
+                        $.ajax({
+                            url:'SearchServlet?method=GetHistory',
+                            type:'get',
+                            dataType:'json',
+                            success:function (data) {
+                                console.log(data);
+                                var str='';
+                                for (let i=0;i<data.values.length;i++){
+                                    str+='<li data-id='+data.values[i].id+'>' +
+                                        '<span>'+data.values[i].history+'</span>' +
+                                        '<i class="iconfont icon-x"></i>' +
+                                        '</li>';
+                                }
+                                $('.search .main .right ul').html(str);
+                            }
+                        });
                         /*$('section').on('click','.search .input span',function () {
                             var $key=$('.search .input input').val();
                             console.log($key);
@@ -317,23 +333,48 @@
     $('section').on('click','.search .main .left span',function () {
         var text=$(this).text();
         musicText=text;
+        var datas={
+            key:text
+        };
         $('.search .input input').attr('value',musicText);
-        search(text);
+        getSong(datas);
         $('.search .input input').attr('value',musicText);
     });
     //搜索历史
     $('section').on('click','.search .main .right li span:nth-child(1)',function () {
         var text=$(this).text();
         musicText=text;
+        var datas={
+            key:text
+        };
         $('.search .input input').attr('value',musicText);
-        search(text);
+        getSong(datas);
         $('.search .input input').attr('value',musicText);
     });
     //删除搜索历史
     $('section').on('click','.search .main p i',function () {
-        $('.search .main .right ul').animate({'marginLeft':'110%'},200,function () {
+        var $id=$('.search .main .right ul li').attr('data-id');
+        /*$('.search .main .right ul').animate({'marginLeft':'110%'},200,function () {
             $('.search .main .right ul li').remove();
-            localStorage.removeItem('songs');
+            // localStorage.removeItem('songs');
+        });*/
+        var datas={
+            id:$id
+        };
+        console.log(datas);
+        $.ajax({
+            url:'SearchServlet?method=DeleteHistory',
+            type:'post',
+            dataType:'json',
+            data:datas,
+            success:function(data){
+                if("success" == data.type){
+                    alert(data.msg);
+                }
+                $('.search .main .right ul').animate({'marginLeft':'110%'},200,function () {
+                    $('.search .main .right ul li').remove();
+                });
+            }
         });
     });
 

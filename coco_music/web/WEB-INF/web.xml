@@ -19,21 +19,17 @@
     </error-page>
 
     <!-- 过滤器配置 -->
-<!--    <filter>-->
-<!--        <description>登录状态检测过滤器</description>-->
-<!--        <filter-name>LoginFilter</filter-name>-->
-<!--        <filter-class>filter.LoginFilter</filter-class>-->
-<!--    </filter>-->
-<!--    <filter-mapping>-->
-<!--        <filter-name>LoginFilter</filter-name>-->
-<!--        <url-pattern>/SystemServlet</url-pattern>-->
-<!--        <url-pattern>/UserServlet</url-pattern>-->
-<!--        <url-pattern>/BookCategoryServlet</url-pattern>-->
-<!--        <url-pattern>/BookServlet</url-pattern>-->
-<!--        <url-pattern>/BorrowServlet</url-pattern>-->
-<!--        <url-pattern>/BorrowStatsServlet</url-pattern>-->
-<!--        <url-pattern>/UserInfoServlet</url-pattern>-->
-<!--    </filter-mapping>-->
+    <!--<filter>
+        <description>登录状态检测过滤器</description>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+&lt;!&ndash;        <url-pattern>/LoginServlet</url-pattern>&ndash;&gt;
+        <url-pattern>/SearchServlet</url-pattern>
+        <url-pattern>/UserInforServlet</url-pattern>
+    </filter-mapping>-->
 
     <!-- servlet定义，对应于servlet类 -->
 

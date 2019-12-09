@@ -21,8 +21,8 @@
         <option value="Jsp File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -49,7 +49,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/other" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -64,15 +64,18 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="annotation" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
+      <recent name="F:\IDEA_ku\coco_music\web" />
+      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
+      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF\views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\coco_music\coco_music\web\images" />
       <recent name="F:\coco_music\coco_music\web\other" />
       <recent name="F:\coco_music\coco_music\web\css" />
       <recent name="F:\coco_music\coco_music\web\other\css" />
       <recent name="F:\coco_music\coco_music\web\headimg" />
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dao" />
@@ -81,11 +84,8 @@
       <recent name="test" />
       <recent name="filter" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\孙宇轩\平时\作业\大三上\软件工程\新建文件夹 (2)\coco_music\web\js" />
-      <recent name="F:\IDEA_ku\coco_music\web" />
-      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF" />
-      <recent name="F:\IDEA_ku\coco_music\web\WEB-INF\views" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="annotation" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -231,7 +231,10 @@
       <workItem from="1575609713765" duration="18109000" />
       <workItem from="1575717914484" duration="5354000" />
       <workItem from="1575789943913" duration="25992000" />
-      <workItem from="1575873754960" duration="11267000" />
+      <workItem from="1575873754960" duration="14294000" />
+      <workItem from="1575893243067" duration="2832000" />
+      <workItem from="1575896097921" duration="4881000" />
+      <workItem from="1575901008054" duration="5305000" />
     </task>
     <servers />
   </component>
@@ -256,7 +259,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/main.js</url>
-          <line>362</line>
+          <line>403</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -276,9 +279,14 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/main.js</url>
-          <line>776</line>
-          <properties lambdaOrdinal="-1" />
+          <line>817</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/js/main.js</url>
+          <line>354</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/servlet/SonglikeServelet.java</url>

@@ -20,7 +20,8 @@ function getCurrentUserInformation() {
         success:function(data){
             console.log(data);
             $('.perinfor-pop .fill>span:nth-child(1) img').attr('src',data.user.head_portrait);
-            $('.perinfor-pop .fill>span:nth-child(1) input').attr('value',data.user.name);
+            // $('.perinfor-pop .fill>span:nth-child(1) input').attr('value',data.user.name);
+            $('.perinfor-pop .fill>span:nth-child(1) input').val(data.user.name);
             if(data.user.sex=="男"){
                 // $('.perinfor-pop .fill>form #sex').text(data.user.sex);
                 $(".perinfor-pop .fill>form #sex").val("2");
@@ -34,11 +35,11 @@ function getCurrentUserInformation() {
             var birthday=timestampToTime(data.user.birthday);
             // console.log(d);
             // console.log(d2);
-            console.log(birthday);
+            // console.log(birthday);
             $('.perinfor-pop .fill>form #birthday').val(birthday);
             // $('.perinfor-pop .fill>form #birthday').val(data.birthday);
             // console.log(data.birthday);
-            $('.perinfor-pop .fill>form #introduction').text(data.user.introduction);
+            $('.perinfor-pop .fill>form #introduction').val(data.user.introduction);
         }
     });
 }
@@ -98,7 +99,13 @@ $('.nav .user .login>span:nth-child(3)').click(function () {
                         }*!/
         });*/
         $('.perinfor-pop').stop().animate({width: 'toggle'});
+    }else{
+        alert("请登录");
     }
+});
+//个人页面关闭按钮
+$('.perinfor-pop .fill>#next').click(function () {
+    $('.perinfor-pop').stop().animate({width: 'toggle'});
 });
 // 个人信息页面退出登录
 $('.perinfor-pop>#quit1').click(function () {

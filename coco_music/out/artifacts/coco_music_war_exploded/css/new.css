@@ -23,6 +23,11 @@
     position: absolute;
     left: 20px;
 }
+.perinfor-pop>.fill>#next{
+    width: 30px;
+    position: absolute;
+    right: 10px;
+}
 .perinfor-pop>.fill>div span:nth-child(1){
     display: inline-block;
     width: 40px;
