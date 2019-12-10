@@ -239,6 +239,10 @@ $('.changepwd-pop>button').click(function () {
             $('.changepwd-pop .prompt').show();
             return false;
         }
+        else if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/.test($newpass))) {
+            alert("新密码格式不符合标准");
+            return false;
+        }
         else if($newpass!=$newpass2){
             // alert("两次密码不一致");
             $('.changepwd-pop .prompt>span').text('两次密码不一致');
