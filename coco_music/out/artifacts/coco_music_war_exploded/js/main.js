@@ -150,7 +150,10 @@
                 });
             }else if ($(this).attr('data-index')==8){
                 var type=$(this).attr('type');
-                $('.loading').show();
+                if(islogin==false){
+                    alert("请先登录");
+                    $('.loading').show();
+                }
                 $.ajax({
                     url:'../coco_music_war_exploded/cd.html',
                     type:'get',
