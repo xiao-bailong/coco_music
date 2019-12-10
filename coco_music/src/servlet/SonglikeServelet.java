@@ -96,6 +96,8 @@ public class SonglikeServelet extends HttpServlet {
         Page<Song_like> page = new Page<Song_like>(1, 999);
         List<Song_like> content = new ArrayList<>();
         List<Song> result= new ArrayList<>();
+        String user_id = request.getParameter("user_id");
+        page.getSearchProporties().add(new SearchProperty("user_id",user_id , Operator.EQ));
         page = songlikedao.findList(page);
         content = page.getContent();
         //

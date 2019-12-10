@@ -187,12 +187,16 @@
                         //     alert('请先登录');
                         // }
                         //syx
+                        var datas={
+                            user_id:currentUser
+                        };
                         history.replaceState({text:$('section').html()}, '');
                         $('section').html(html);
                         $.ajax({
                             url:'SonglikeServelet?method=GetSonglikeListData',
                             type:'post',
                             dataType:'json',
+                            data:datas,
                             success:function (data) {
                                 haveLists=data
                                 console.log(data);
@@ -353,7 +357,8 @@
     });
     //删除搜索历史
     $('section').on('click','.search .main p i',function () {
-        var $id=$('.search .main .right ul li').attr('data-id');
+        // var $id=$('.search .main .right ul li').attr('data-id');
+        var $id=$(this).parent().attr('data-id');
         /*$('.search .main .right ul').animate({'marginLeft':'110%'},200,function () {
             $('.search .main .right ul li').remove();
             // localStorage.removeItem('songs');
@@ -379,15 +384,40 @@
     });
 
     $('section').on('click','.search .main .right li i',function () {
-       var li=$(this).parent();
-       li.animate({'marginLeft':'110%'},200,function () {
-           li.remove();
-           var text=li.children(':first').text();
-           var songs=JSON.parse(localStorage.getItem('songs'));
-           var i=songs.indexOf(text);
-           songs.splice(i, 1);
-           localStorage.setItem('songs',JSON.stringify(songs));
-       });
+        var li=$(this).parent();
+        /*li.animate({'marginLeft':'110%'},200,function () {
+            li.remove();
+            var text=li.children(':first').text();
+            var songs=JSON.parse(localStorage.getItem('songs'));
+            var i=songs.indexOf(text);
+            songs.splice(i, 1);
+            localStorage.setItem('songs',JSON.stringify(songs));
+        });*/
+        var $id=$(this).parent().attr('data-id');
+        var datas={
+            id:$id
+        };
+        console.log(datas);
+        $.ajax({
+            url:'SearchServlet?method=DeleteHistory',
+            type:'post',
+            dataType:'json',
+            data:datas,
+            success:function(data){
+                /*if("success" == data.type){
+                    alert(data.msg);
+                }*/
+                alert(data.msg);
+                li.animate({'marginLeft':'110%'},200,function () {
+                    li.remove();
+                    var text=li.children(':first').text();
+                    var songs=JSON.parse(localStorage.getItem('songs'));
+                    var i=songs.indexOf(text);
+                    songs.splice(i, 1);
+                    localStorage.setItem('songs',JSON.stringify(songs));
+                });
+            }
+        });
     });
 
     //搜索歌曲列表点击

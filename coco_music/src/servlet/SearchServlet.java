@@ -67,6 +67,7 @@ public class SearchServlet extends HttpServlet {
         Map<String, String> ret = new HashMap<String, String>();
         response.setCharacterEncoding("UTF-8");
         String id = request.getParameter("id");
+        System.out.println(id);
         try{
             int id2 = Integer.valueOf(id).intValue();
             Page<Search_history> page = new Page<Search_history>(1, 999);
@@ -75,6 +76,12 @@ public class SearchServlet extends HttpServlet {
             Search_history his=page.getContent().get(0);
             System.out.println(id2);
             System.out.println(his.getHistory());
+            if(!historyDao.delete(id2)){
+                ret.put("type", "error");
+                ret.put("msg", "搜索历史删除失败，请联系管理员！");
+                response.getWriter().write(JSONObject.toJSONString(ret));
+                return;
+            }
         }catch(NumberFormatException e){
             e.printStackTrace();
         }
